@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Made by Kenneth Tang
 public class GameStateManager : MonoBehaviour
 {
     private static GameStateManager _instance;

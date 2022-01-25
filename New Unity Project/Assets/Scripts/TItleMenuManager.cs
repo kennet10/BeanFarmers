@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Made by Kenneth Tang
 public class TItleMenuManager : MonoBehaviour
 {
     public void OnClickNewGame()
