@@ -2008,11 +2008,11 @@ GameObject:
   - component: {fileID: 2744035213968258594}
   m_Layer: 0
   m_Name: Player2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5311574731868924426
 Transform:
   m_ObjectHideFlags: 0
@@ -2057,7 +2057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNum: 2
-  speed: 3
+  speed: 4
   turnSpeed: 180
 --- !u!1 &5398522057172795957
 GameObject:
