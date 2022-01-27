@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33953939693949920}
   - component: {fileID: 23918865209778262}
   - component: {fileID: 95612955934908496}
+  - component: {fileID: -8545863452226947482}
   m_Layer: 0
   m_Name: ChickenBrown
   m_TagString: Untagged
@@ -101,3 +102,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-8545863452226947482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206511787925574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e413818c67dcea4897ba1adcdf1a4e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animalSO: {fileID: 11400000, guid: a3b733c25e50bba4ab8bda9ba7cbe005, type: 2}
