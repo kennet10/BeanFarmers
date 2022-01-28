@@ -19,6 +19,11 @@ public class Animal : MonoBehaviour
         onCD = false;
     }
 
+    public int GetBuyCost()
+    {
+        return buy_cost;
+    }
+
     public void FeedAnimal()
     {
         StartCoroutine(GoOnCooldown());
