@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Made by Kenneth Tang
 public class SeedListButton : MonoBehaviour
 {
     /*private Text[] texts;

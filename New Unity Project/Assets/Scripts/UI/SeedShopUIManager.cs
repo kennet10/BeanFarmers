@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Made by Kenneth Tang
 public class SeedShopUIManager : MonoBehaviour
 {
     [SerializeField] private GameObject buttonTemplate;

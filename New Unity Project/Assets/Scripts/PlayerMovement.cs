@@ -5,9 +5,9 @@ using UnityEngine;
 // Made by Haley Vlahos
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] int playerNum;
-    [SerializeField] float speed;
-    [SerializeField] float turnSpeed;
+    [SerializeField] public int playerNum;
+    [SerializeField] private float speed;
+    [SerializeField] private float turnSpeed;
     private string axisName;
     private string turnAxis;
     private Rigidbody rb;
