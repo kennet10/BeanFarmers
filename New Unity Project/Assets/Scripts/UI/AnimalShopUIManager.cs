@@ -10,8 +10,8 @@ public class AnimalShopUIManager : MonoBehaviour
 
     public void Start()
     {
-        animals = Resources.LoadAll<AnimalSO>("ScriptableObjects");
-        for(int i = 0; i < animals.Length; i++)
+        animals = Resources.LoadAll<AnimalSO>("Animal ScriptableObjects");
+        for (int i = 0; i < animals.Length; i++)
         {
             GameObject button = Instantiate(buttonTemplate);
             button.SetActive(true);

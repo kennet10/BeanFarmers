@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Made by Kenneth Tang
 [CreateAssetMenu]
 public class AnimalSO : ScriptableObject
 {

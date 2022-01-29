@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Made by Ben Hamilton
 public class TempCoroutineTest : MonoBehaviour
 {
     private bool cropGrowing;
@@ -28,13 +29,16 @@ public class TempCoroutineTest : MonoBehaviour
         Debug.Log(endScale);
 
         float currentTime = 0.0f;
-        while (currentTime <= growthTime)
+        while (currentTime < growthTime)
         {
             //Debug.Log("${currentTime}");
             cropPrefab.transform.localScale = Vector3.Lerp(originalScale, endScale, currentTime / growthTime);
             currentTime += Time.deltaTime;
+
+            yield return null;
         }
-        yield return null;
+
+        transform.localScale = endScale;
         cropGrowing = false;
     }
 }
