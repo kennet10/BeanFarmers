@@ -16,5 +16,5 @@ MonoBehaviour:
   buyCost: 30
   sellCost: 60
   growthTime: 10
-  cropPrefab: {fileID: 1000012003911730, guid: 0adfa404918648e42a1fb073ef9010d3, type: 3}
+  cropPrefab: {fileID: 1000010824186820, guid: 30319199574ca3644bf3898bb5cac486, type: 3}
   cropSprite: {fileID: 21300000, guid: b398f31984f975d439ad74fd48570d89, type: 3}

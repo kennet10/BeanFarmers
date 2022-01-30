@@ -10,8 +10,9 @@ public class CropField : MonoBehaviour
     [SerializeField] TextMeshProUGUI triggerText;
     [SerializeField] private int fieldNumber;
     [SerializeField] GameObject cropMenu;
-    [SerializeField] CropSO currentCrop;
+    [SerializeField] Crop currentCrop;
     private int playerNum;
+    private bool harvestable = false;
 
     private void OnTriggerEnter(Collider collision)
     {
@@ -33,14 +34,34 @@ public class CropField : MonoBehaviour
                 }
 
                 triggerText.gameObject.SetActive(true);
-                //do a check if they have seed, -> -1 seed
+                //do a check if they have seed, if so, -1 seed, else provide error message
             }
         }
-            //if there's a plant here
-            //if its grown
-            //press {} to harvest
-            //+1 crop
-            //set current crop to null
+        
+        else
+        {
+            if (!currentCrop.IsGrowing())
+            {
+                if (collision.gameObject.tag == "Player")
+                {
+                    PlayerMovement PM = collision.GetComponent<PlayerMovement>();
+
+                    if (PM.playerNum == 1)
+                    {
+                        triggerText.text = "Press Space to harvest!";
+                        playerNum = 1;
+                    }
+                    if (PM.playerNum == 2)
+                    {
+                        triggerText.text = "Press Enter to harvest!";
+                        playerNum = 2;
+                    }
+
+                    triggerText.gameObject.SetActive(true);
+                    harvestable = true;
+                }
+            }
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -55,14 +76,24 @@ public class CropField : MonoBehaviour
     {
         if (playerNum == 1)
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.Space))
+            if ((harvestable) && (Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.Space)))
+            {
+                //+1 crop
+                currentCrop = null;
+            }
+            else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.Space))
             {
                 cropMenu.SetActive(true);
             }
         }
         else if (playerNum == 2)
         {
-            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKey(KeyCode.Return))
+            if ((harvestable) && (Input.GetKeyDown(KeyCode.Return) || Input.GetKey(KeyCode.Return)))
+            {
+                //+1 crop
+                currentCrop = null;
+            }
+            else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKey(KeyCode.Return))
             {
                 cropMenu.SetActive(true);
             }
