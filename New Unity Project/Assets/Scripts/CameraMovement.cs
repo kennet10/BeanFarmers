@@ -31,7 +31,7 @@ public class CameraMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
-        //Zoom();
+        Zoom();
     }
 
     // Sets starting location and zoom

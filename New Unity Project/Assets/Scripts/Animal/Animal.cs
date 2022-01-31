@@ -25,12 +25,14 @@ public class Animal : MonoBehaviour
         return buy_cost;
     }
 
+    // Feed the animal for and get one of their products
     public void FeedAnimal()
     {
         StartCoroutine(GoOnCooldown());
         //call function to increase product count by 1
     }
 
+    // Go on cooldown. While oncooldown, unable to get any products.
     private IEnumerator GoOnCooldown()
     {
         onCD = true;

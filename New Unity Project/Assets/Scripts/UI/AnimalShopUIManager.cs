@@ -8,6 +8,7 @@ public class AnimalShopUIManager : MonoBehaviour
     [SerializeField] private GameObject buttonTemplate;
     private AnimalSO[] animals;
 
+    // Get all the animalSOs and create a button for each
     public void Start()
     {
         animals = Resources.LoadAll<AnimalSO>("Animal ScriptableObjects");

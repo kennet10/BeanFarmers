@@ -6,6 +6,14 @@ using TMPro;
 // Made by Haley Vlahos
 public class ResourceManager : MonoBehaviour
 {
+    // Money
+    private static int money = 250;
+    [SerializeField] private TextMeshProUGUI moneyDisplay;
+
+    //Crop and AnimalSOs
+    private AnimalSO[] animalSO;
+    private CropSO[] cropSO;
+
     // Seeds
     public static int carrotSeeds = 1;
     public static int cornSeeds = 1;
@@ -18,23 +26,30 @@ public class ResourceManager : MonoBehaviour
     public static int carrots = 0;
     public static int corn = 0;
     public static int pumpkins = 0;
-    public static int radishs = 0;
     public static int tomatos = 0;
-    private static List<int> crops = new List<int> {carrots, corn, pumpkins, radishs, tomatos};
+    public static int radishs = 0;
+    private static List<int> crops = new List<int> {carrots, corn, pumpkins, tomatos, radishs};
 
     // Animal Products
-    public static int bacon = 0;
     public static int eggs = 0;
-    public static int feathers = 0;
     public static int milk = 0;
+    public static int feathers = 0;
+    public static int bacon = 0;
     public static int wool = 0;
-    private static List<int> animalProds = new List<int> {bacon, eggs, feathers, milk, wool};
+    private static List<int> animalProds = new List<int> {eggs, milk, feathers, bacon, wool};
 
     [SerializeField] private List<TextMeshProUGUI> counters = new List<TextMeshProUGUI>();
-    private static List<int> displayRsrc = new List<int> {carrots, corn, pumpkins, radishs, tomatos, bacon, eggs, feathers, milk, wool};
+    private static List<int> displayRsrc = new List<int> {carrots, corn, pumpkins, tomatos, radishs, eggs, milk , feathers, bacon, wool};
+
+    //Get animal and cropSOs
+    private void Start()
+    {
+        animalSO = Resources.LoadAll<AnimalSO>("Animal ScriptableObjects");
+        cropSO = Resources.LoadAll<CropSO>("Crop ScriptableObjects");
+    }
 
     // For game startup, sets all resources to 0 unless it is a seed, in which you are given 1
-    public static void setupResources()
+    public static void SetupResources()
     {
         // The temp list stops an InvalidOperationsError
         List<int> temp = new List<int>();
@@ -53,7 +68,7 @@ public class ResourceManager : MonoBehaviour
         }
 
         foreach (int i in temp) {
-            crops[i] = 0;
+            crops[i] = 2;
         }
 
         temp.Clear();
@@ -66,12 +81,28 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
+    public void SellAll()
+    {
+        for (int i = 0; i < crops.Count; i++)
+        {
+            money += crops[i] * cropSO[i].GetSellCost();
+            crops[i] = 0;
+        }
+        for (int i = 0; i < animalProds.Count; i++)
+        {
+            money += crops[i] * animalSO[i].GetSellPrice();
+            animalProds[i] = 0;
+        }
+    }
+
+
     // Updates each of the text counters to match the variables, both lists are in alphabetical order
     private void Update()
     {
         foreach(int i in displayRsrc) {
             counters[i].text = displayRsrc[i].ToString();
         }
+        moneyDisplay.text = "$: " + money.ToString();
     }
 
 }
