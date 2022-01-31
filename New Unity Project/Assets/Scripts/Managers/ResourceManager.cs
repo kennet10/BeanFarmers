@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 // Made by Haley Vlahos
 public class ResourceManager : MonoBehaviour
@@ -15,35 +16,38 @@ public class ResourceManager : MonoBehaviour
     private CropSO[] cropSO;
 
     // Seeds
-    public static int carrotSeeds = 1;
-    public static int cornSeeds = 1;
-    public static int pumpkinSeeds = 1;
-    public static int turnipSeeds = 1;
-    public static int tomatoSeeds = 1;
-    private static List<int> seeds = new List<int>{carrotSeeds, cornSeeds, pumpkinSeeds, turnipSeeds, tomatoSeeds };
+    public static int carrotSeeds;
+    public static int cornSeeds;
+    public static int pumpkinSeeds;
+    public static int turnipSeeds;
+    public static int tomatoSeeds;
+    private static List<int> seeds = new List<int>{carrotSeeds, cornSeeds, pumpkinSeeds, turnipSeeds, tomatoSeeds};
 
     // Crops
-    public static int carrots = 0;
-    public static int corn = 0;
-    public static int pumpkins = 0;
-    public static int tomatos = 0;
-    public static int radishs = 0;
-    private static List<int> crops = new List<int> {carrots, corn, pumpkins, tomatos, radishs};
+    public static int carrots;
+    public static int corn;
+    public static int pumpkins;
+    public static int tomatoes;
+    public static int turnips;
+    private static List<int> crops = new List<int> {carrots, corn, pumpkins, tomatoes, turnips};
 
     // Animal Products
-    public static int eggs = 0;
-    public static int milk = 0;
-    public static int feathers = 0;
-    public static int bacon = 0;
-    public static int wool = 0;
+    public static int eggs;
+    public static int milk;
+    public static int feathers;
+    public static int bacon;
+    public static int wool;
     private static List<int> animalProds = new List<int> {eggs, milk, feathers, bacon, wool};
 
     [SerializeField] private List<TextMeshProUGUI> counters = new List<TextMeshProUGUI>();
-    private static List<int> displayRsrc = new List<int> {carrots, corn, pumpkins, tomatos, radishs, eggs, milk , feathers, bacon, wool};
+    private static List<int> displayRsrc = new List<int> {carrots, corn, pumpkins, tomatoes, turnips, eggs, milk , feathers, bacon, wool};
+
+    [SerializeField] public Slider slide;
 
     //Get animal and cropSOs
     private void Start()
     {
+        SetupResources();
         animalSO = Resources.LoadAll<AnimalSO>("Animal ScriptableObjects");
         cropSO = Resources.LoadAll<CropSO>("Crop ScriptableObjects");
     }
@@ -51,38 +55,31 @@ public class ResourceManager : MonoBehaviour
     // For game startup, sets all resources to 0 unless it is a seed, in which you are given 1
     public static void SetupResources()
     {
-        // The temp list stops an InvalidOperationsError
-        List<int> temp = new List<int>();
-        
-        foreach (int i in seeds) {
-            temp.Add(seeds[i]);
-        }
-
-        foreach (int i in temp) {
-            seeds[i] = 1;
-        }
-
-        temp.Clear();
-        foreach (int i in crops) {
-            temp.Add(crops[i]);
-        }
-
-        foreach (int i in temp) {
-            crops[i] = 2;
-        }
-
-        temp.Clear();
-        foreach (int i in animalProds) {
-            temp.Add(animalProds[i]);
-        }
-
-        foreach (int i in temp) {
-            animalProds[i] = 0;
-        }
+        //Seeds
+        carrotSeeds = 1;
+        cornSeeds = 1;
+        pumpkinSeeds = 1;
+        turnipSeeds = 1;
+        tomatoSeeds = 1;
+        //Crops
+        carrots = 0;
+        corn = 0;
+        pumpkins = 0;
+        tomatoes = 0;
+        turnips = 0;
+        //Animal Products
+        eggs = 0;
+        milk = 0;
+        feathers = 0;
+        bacon = 0;
+        wool = 0;
     }
 
+    // Made by Kenneth Tang, sells all crops and animal products, sets their counters to 0
     public void SellAll()
     {
+        updateLists();
+
         for (int i = 0; i < crops.Count; i++)
         {
             money += crops[i] * cropSO[i].GetSellCost();
@@ -90,7 +87,7 @@ public class ResourceManager : MonoBehaviour
         }
         for (int i = 0; i < animalProds.Count; i++)
         {
-            money += crops[i] * animalSO[i].GetSellPrice();
+            money += animalProds[i] * animalSO[i].GetSellPrice();
             animalProds[i] = 0;
         }
     }
@@ -99,10 +96,29 @@ public class ResourceManager : MonoBehaviour
     // Updates each of the text counters to match the variables, both lists are in alphabetical order
     private void Update()
     {
-        foreach(int i in displayRsrc) {
-            counters[i].text = displayRsrc[i].ToString();
+        // These were used to debug the resource values
+        //carrots = (int)slide.value;
+        //tomatoes = (int)slide.value;
+        //wool = (int)slide.value;
+
+
+        displayRsrc = new List<int> {carrots, corn, pumpkins, tomatoes, turnips, eggs, milk, feathers, bacon, wool };
+        if (counters.Count == displayRsrc.Count) {
+            for(int i = 0; i < counters.Count; i++) {
+                counters[i].text = displayRsrc[i].ToString();
+            }
+            //foreach (int i in displayRsrc) {
+            //    counters[i].text = displayRsrc[i].ToString();
+            //}
         }
         moneyDisplay.text = "$: " + money.ToString();
+    }
+
+    private void updateLists()
+    {
+        seeds = new List<int>{carrotSeeds, cornSeeds, pumpkinSeeds, turnipSeeds, tomatoSeeds};
+        crops = new List<int> { carrots, corn, pumpkins, tomatoes, turnips };
+        animalProds = new List<int> { eggs, milk, feathers, bacon, wool };
     }
 
 }
