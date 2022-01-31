@@ -4,16 +4,23 @@ using UnityEngine;
 using TMPro;
 
 
-//Made by Ben Hamilton
+//Made by Ben Hamilton and Haley Vlahos
 public class CropField : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI triggerText;
+    [SerializeField] private TextMeshProUGUI triggerText;
     [SerializeField] private int fieldNumber;
-    [SerializeField] GameObject cropMenu;
-    [SerializeField] Crop currentCrop;
+    [SerializeField] private GameObject cropMenu;
+    [SerializeField] private CropCoroutine currentCrop;
+    [SerializeField] private CropManager CM;
     private int playerNum;
     private bool harvestable = false;
 
+    public void setCurrentCrop(CropCoroutine cc)
+    {
+        currentCrop = cc;
+    }
+
+    // Checks if there is a crop currently planted, if not: shows instructions to pull up menu. If yes: checks if the crops are done, if yes, lets players harvest
     private void OnTriggerEnter(Collider collision)
     {
         if (currentCrop == null)
@@ -37,10 +44,9 @@ public class CropField : MonoBehaviour
                 //do a check if they have seed, if so, -1 seed, else provide error message
             }
         }
-        
         else
         {
-            if (!currentCrop.IsGrowing())
+            if (!currentCrop.isGrowing())
             {
                 if (collision.gameObject.tag == "Player")
                 {
@@ -64,6 +70,7 @@ public class CropField : MonoBehaviour
         }
     }
 
+    // Disables instruction text
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -72,6 +79,7 @@ public class CropField : MonoBehaviour
         }
     }
 
+    // If the crops are done growing, increments their variable and sets the currentCrop to null
     private void OnTriggerStay(Collider other)
     {
         if (playerNum == 1)
@@ -79,11 +87,14 @@ public class CropField : MonoBehaviour
             if ((harvestable) && (Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.Space)))
             {
                 //+1 crop
+                disableCrops();
                 currentCrop = null;
+                harvestable = false;
             }
-            else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.Space))
+            else if ((!harvestable) && Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.Space))
             {
                 cropMenu.SetActive(true);
+                CM.setFieldNum(fieldNumber);
             }
         }
         else if (playerNum == 2)
@@ -91,12 +102,34 @@ public class CropField : MonoBehaviour
             if ((harvestable) && (Input.GetKeyDown(KeyCode.Return) || Input.GetKey(KeyCode.Return)))
             {
                 //+1 crop
+                disableCrops();
                 currentCrop = null;
+                harvestable = false;
             }
-            else if (Input.GetKeyDown(KeyCode.Return) || Input.GetKey(KeyCode.Return))
+            else if ((!harvestable) && Input.GetKeyDown(KeyCode.Return) || Input.GetKey(KeyCode.Return))
             {
                 cropMenu.SetActive(true);
+                CM.setFieldNum(fieldNumber);
             }
         }
     }
+
+    private void disableCrops()
+    {
+        switch (fieldNumber) {
+            case 1:
+                CM.disableField1();
+                break;
+            case 2:
+                CM.disableField2();
+                break;
+            case 3:
+                CM.disableField3();
+                break;
+            case 4:
+                CM.disableField4();
+                break;
+        }
+    }
+
 }

@@ -10,9 +10,9 @@ public class ResourceManager : MonoBehaviour
     public static int carrotSeeds = 1;
     public static int cornSeeds = 1;
     public static int pumpkinSeeds = 1;
-    public static int radishSeeds = 1;
+    public static int turnipSeeds = 1;
     public static int tomatoSeeds = 1;
-    private static List<int> seeds = new List<int>{carrotSeeds, cornSeeds, pumpkinSeeds, radishSeeds, tomatoSeeds };
+    private static List<int> seeds = new List<int>{carrotSeeds, cornSeeds, pumpkinSeeds, turnipSeeds, tomatoSeeds };
 
     // Crops
     public static int carrots = 0;

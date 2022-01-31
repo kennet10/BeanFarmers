@@ -35,39 +35,38 @@ public class Crop : MonoBehaviour
         return buyCost;
     }
 
-    public void PlantCrop()
-    {
-        for (int i = 0; i < (columnLength * rowLength); i++)
-        {
-            Vector3 position;
-            position = new Vector3((xStart + (xSpace * (i % columnLength))), 0, (zStart + (zSpace * (i / columnLength))));
-            Instantiate(cropPrefab, position, Quaternion.identity);
-        }
-        StartCoroutine(Growing());
-    }
+    //public void PlantCrop()
+    //{
+    //    for (int i = 0; i < (columnLength * rowLength); i++) {
+    //        Vector3 position;
+    //        position = new Vector3((xStart + (xSpace * (i % columnLength))), 0, (zStart + (zSpace * (i / columnLength))));
+    //        Instantiate(cropPrefab, position, Quaternion.identity);
+    //    }
+    //    StartCoroutine(Growing());
+    //}
 
-    public bool IsGrowing()
-    {
-        return cropGrowing;
-    }
+    //public bool IsGrowing()
+    //{
+    //    return cropGrowing;
+    //}
 
-    private IEnumerator Growing()
-    {
-        cropGrowing = true;
+    //private IEnumerator Growing()
+    //{
+    //    cropGrowing = true;
 
-        Vector3 originalScale = new Vector3(startingSize, startingSize, startingSize);
-        Vector3 endScale = new Vector3(scaleSize, scaleSize, scaleSize);
+    //    Vector3 originalScale = new Vector3(startingSize, startingSize, startingSize);
+    //    Vector3 endScale = new Vector3(scaleSize, scaleSize, scaleSize);
 
-        float currentTime = 0.0f;
-        while (currentTime < growthTime)
-        {
-            cropPrefab.transform.localScale = Vector3.Lerp(originalScale, endScale, currentTime / growthTime);
-            currentTime += Time.deltaTime;
+    //    float currentTime = 0.0f;
+    //    while (currentTime < growthTime)
+    //    {
+    //        cropPrefab.transform.localScale = Vector3.Lerp(originalScale, endScale, currentTime / growthTime);
+    //        currentTime += Time.deltaTime;
 
-            yield return null;
-        }
+    //        yield return null;
+    //    }
 
-        transform.localScale = endScale;
-        cropGrowing = false;
-    }
+    //    transform.localScale = endScale;
+    //    cropGrowing = false;
+    //}
 }
