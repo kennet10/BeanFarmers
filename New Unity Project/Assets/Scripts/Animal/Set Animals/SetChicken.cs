@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class SetChicken : MonoBehaviour
 {
-    [SerializeField] private FeedUI ui;
-    private void OnEnable()
+    private void Start()
     {
-        ui.chicken = GetComponent<Animal>();
+        GameObject menu = GameObject.FindGameObjectWithTag("FeedUI");
+        FeedUI ui = menu.GetComponent<FeedUI>();
+        ui.chicken = gameObject.GetComponent<Animal>();
     }
 }

@@ -8,6 +8,7 @@ public class PastureTrigger : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI triggerText;
     [SerializeField] private GameObject animalMenu;
+    [SerializeField] private FeedUI Feeding;
     private int playerNum;
 
 
@@ -47,11 +48,13 @@ public class PastureTrigger : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.Space)) {
                 animalMenu.SetActive(true);
                 triggerText.gameObject.SetActive(false);
+                Feeding.checkButton();
             }
         } else if (playerNum == 2) {
             if (Input.GetKeyDown(KeyCode.Return) || Input.GetKey(KeyCode.Return)) {
                 animalMenu.SetActive(true);
                 triggerText.gameObject.SetActive(false);
+                Feeding.checkButton();
             }
         }
     }

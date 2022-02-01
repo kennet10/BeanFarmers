@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class ResourceManager : MonoBehaviour
 {
     // Money by Kenneth Tang
-    public int money {get; set;}
+    public static int money;
     [SerializeField] private TextMeshProUGUI moneyDisplay;
 
     //Crop and AnimalSOs by Kenneth Tang
@@ -40,6 +40,7 @@ public class ResourceManager : MonoBehaviour
     private static List<int> animalProds = new List<int> {eggs, milk, feathers, bacon, wool};
 
     [SerializeField] private List<TextMeshProUGUI> counters = new List<TextMeshProUGUI>();
+    [SerializeField] private List<TextMeshProUGUI> seedCounters = new List<TextMeshProUGUI>();
     private static List<int> displayRsrc = new List<int> {carrots, corn, pumpkins, tomatoes, turnips, eggs, milk , feathers, bacon, wool};
 
     [SerializeField] public Slider slide;
@@ -55,12 +56,13 @@ public class ResourceManager : MonoBehaviour
     // For game startup, sets all resources to 0 unless it is a seed, in which you are given 1
     public static void SetupResources()
     {
+        money = 250;
         //Seeds
         carrotSeeds = 1;
-        cornSeeds = 1;
-        pumpkinSeeds = 1;
-        turnipSeeds = 1;
-        tomatoSeeds = 1;
+        cornSeeds = 2;
+        pumpkinSeeds = 3;
+        turnipSeeds = 4;
+        tomatoSeeds = 5;
         //Crops
         carrots = 0;
         corn = 0;
@@ -106,6 +108,13 @@ public class ResourceManager : MonoBehaviour
         if (counters.Count == displayRsrc.Count) {
             for(int i = 0; i < counters.Count; i++) {
                 counters[i].text = displayRsrc[i].ToString();
+            }
+        }
+
+        seeds = new List<int> { carrotSeeds, cornSeeds, pumpkinSeeds, turnipSeeds, tomatoSeeds };
+        if (seedCounters.Count == seeds.Count) {
+            for (int i = 0; i < seedCounters.Count; i++) {
+                seedCounters[i].text = "Seeds: " + seeds[i].ToString();
             }
         }
         moneyDisplay.text = "$: " + money.ToString(); // Kenneth Tang

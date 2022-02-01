@@ -45,6 +45,19 @@ public class CropManager : MonoBehaviour
     private CropCoroutine currentCrop;
     private int fieldNum;
 
+    public int cropTypeOne { get; private set; }
+    public int cropTypeTwo { get; private set; }
+    public int cropTypeThree { get; private set; }
+    public int cropTypeFour { get; private set; }
+
+    private const int carrotNum = 1;
+    private const int cornNum = 2;
+    private const int pumpkinNum = 3;
+    private const int turnipNum = 4;
+    private const int tomatoNum = 5;
+
+    private const int zeroConst = 0;
+
     public void setFieldNum(int num)
     {
         fieldNum = num;
@@ -97,225 +110,325 @@ public class CropManager : MonoBehaviour
     // Field 1
     private void oneCarrotButton()
     {
-        oneCarrot.SetActive(true);
-        oneCorn.SetActive(false);
-        onePumpkin.SetActive(false);
-        oneTurnip.SetActive(false);
-        oneTomato.SetActive(false);
-        currentCrop = oneCarrot.GetComponentInChildren<CropCoroutine>();
-        field1.setCurrentCrop(currentCrop);
+        if (ResourceManager.carrotSeeds > zeroConst) {
+            oneCarrot.SetActive(true);
+            oneCorn.SetActive(false);
+            onePumpkin.SetActive(false);
+            oneTurnip.SetActive(false);
+            oneTomato.SetActive(false);
+
+            ResourceManager.carrotSeeds--;
+            cropTypeOne = carrotNum;
+            currentCrop = oneCarrot.GetComponentInChildren<CropCoroutine>();
+            field1.setCurrentCrop(currentCrop);
+        }
     }
 
     private void oneCornButton()
     {
-        oneCarrot.SetActive(false);
-        oneCorn.SetActive(true);
-        onePumpkin.SetActive(false);
-        oneTurnip.SetActive(false);
-        oneTomato.SetActive(false);
-        currentCrop = oneCorn.GetComponentInChildren<CropCoroutine>();
-        field1.setCurrentCrop(currentCrop);
+        if (ResourceManager.cornSeeds > zeroConst) {
+            oneCarrot.SetActive(false);
+            oneCorn.SetActive(true);
+            onePumpkin.SetActive(false);
+            oneTurnip.SetActive(false);
+            oneTomato.SetActive(false);
+
+            ResourceManager.cornSeeds--;
+            cropTypeOne = cornNum;
+            currentCrop = oneCorn.GetComponentInChildren<CropCoroutine>();
+            field1.setCurrentCrop(currentCrop);
+        }
     }
 
     private void onePumpkinButton()
     {
-        oneCarrot.SetActive(false);
-        oneCorn.SetActive(false);
-        onePumpkin.SetActive(true);
-        oneTurnip.SetActive(false);
-        oneTomato.SetActive(false);
-        currentCrop = onePumpkin.GetComponentInChildren<CropCoroutine>();
-        field1.setCurrentCrop(currentCrop);
+        if (ResourceManager.pumpkinSeeds > zeroConst) {
+            oneCarrot.SetActive(false);
+            oneCorn.SetActive(false);
+            onePumpkin.SetActive(true);
+            oneTurnip.SetActive(false);
+            oneTomato.SetActive(false);
+
+            ResourceManager.pumpkinSeeds--;
+            cropTypeOne = pumpkinNum;
+            currentCrop = onePumpkin.GetComponentInChildren<CropCoroutine>();
+            field1.setCurrentCrop(currentCrop);
+        }
     }
 
     private void oneTurnipButton()
     {
-        oneCarrot.SetActive(false);
-        oneCorn.SetActive(false);
-        onePumpkin.SetActive(false);
-        oneTurnip.SetActive(true);
-        oneTomato.SetActive(false);
-        currentCrop = oneTurnip.GetComponentInChildren<CropCoroutine>();
-        field1.setCurrentCrop(currentCrop);
+        if (ResourceManager.turnipSeeds > zeroConst) {
+            oneCarrot.SetActive(false);
+            oneCorn.SetActive(false);
+            onePumpkin.SetActive(false);
+            oneTurnip.SetActive(true);
+            oneTomato.SetActive(false);
+
+            ResourceManager.turnipSeeds--;
+            cropTypeOne = turnipNum;
+            currentCrop = oneTurnip.GetComponentInChildren<CropCoroutine>();
+            field1.setCurrentCrop(currentCrop);
+        }
     }
 
     private void oneTomatoButton()
     {
-        oneCarrot.SetActive(false);
-        oneCorn.SetActive(false);
-        onePumpkin.SetActive(false);
-        oneTurnip.SetActive(false);
-        oneTomato.SetActive(true);
-        currentCrop = oneTomato.GetComponentInChildren<CropCoroutine>();
-        field1.setCurrentCrop(currentCrop);
+        if (ResourceManager.tomatoSeeds > zeroConst) {
+            oneCarrot.SetActive(false);
+            oneCorn.SetActive(false);
+            onePumpkin.SetActive(false);
+            oneTurnip.SetActive(false);
+            oneTomato.SetActive(true);
+
+            ResourceManager.tomatoSeeds--;
+            cropTypeOne = tomatoNum;
+            currentCrop = oneTomato.GetComponentInChildren<CropCoroutine>();
+            field1.setCurrentCrop(currentCrop);
+        }
     }
 
     // Field 2
     private void twoCarrotButton()
     {
-        twoCarrot.SetActive(true);
-        twoCorn.SetActive(false);
-        twoPumpkin.SetActive(false);
-        twoTurnip.SetActive(false);
-        twoTomato.SetActive(false);
-        currentCrop = twoCarrot.GetComponentInChildren<CropCoroutine>();
-        field2.setCurrentCrop(currentCrop);
+        if (ResourceManager.carrotSeeds > zeroConst) {
+            twoCarrot.SetActive(true);
+            twoCorn.SetActive(false);
+            twoPumpkin.SetActive(false);
+            twoTurnip.SetActive(false);
+            twoTomato.SetActive(false);
+
+            ResourceManager.carrotSeeds--;
+            cropTypeTwo = carrotNum;
+            currentCrop = twoCarrot.GetComponentInChildren<CropCoroutine>();
+            field2.setCurrentCrop(currentCrop);
+        }
     }
 
     private void twoCornButton()
     {
-        twoCarrot.SetActive(false);
-        twoCorn.SetActive(true);
-        twoPumpkin.SetActive(false);
-        twoTurnip.SetActive(false);
-        twoTomato.SetActive(false);
-        currentCrop = twoCorn.GetComponentInChildren<CropCoroutine>();
-        field2.setCurrentCrop(currentCrop);
+        if (ResourceManager.cornSeeds > zeroConst) {
+            twoCarrot.SetActive(false);
+            twoCorn.SetActive(true);
+            twoPumpkin.SetActive(false);
+            twoTurnip.SetActive(false);
+            twoTomato.SetActive(false);
+
+            ResourceManager.cornSeeds--;
+            cropTypeTwo = cornNum;
+            currentCrop = twoCorn.GetComponentInChildren<CropCoroutine>();
+            field2.setCurrentCrop(currentCrop);
+        }
     }
 
     private void twoPumpkinButton()
     {
-        twoCarrot.SetActive(false);
-        twoCorn.SetActive(false);
-        twoPumpkin.SetActive(true);
-        twoTurnip.SetActive(false);
-        twoTomato.SetActive(false);
-        currentCrop = twoPumpkin.GetComponentInChildren<CropCoroutine>();
-        field2.setCurrentCrop(currentCrop);
+        if (ResourceManager.pumpkinSeeds > zeroConst) {
+            twoCarrot.SetActive(false);
+            twoCorn.SetActive(false);
+            twoPumpkin.SetActive(true);
+            twoTurnip.SetActive(false);
+            twoTomato.SetActive(false);
+
+            ResourceManager.pumpkinSeeds--;
+            cropTypeTwo = pumpkinNum;
+            currentCrop = twoPumpkin.GetComponentInChildren<CropCoroutine>();
+            field2.setCurrentCrop(currentCrop);
+        }
     }
 
     private void twoTurnipButton()
     {
-        twoCarrot.SetActive(false);
-        twoCorn.SetActive(false);
-        twoPumpkin.SetActive(false);
-        twoTurnip.SetActive(true);
-        twoTomato.SetActive(false);
-        currentCrop = twoTurnip.GetComponentInChildren<CropCoroutine>();
-        field2.setCurrentCrop(currentCrop);
+        if (ResourceManager.turnipSeeds > zeroConst) {
+            twoCarrot.SetActive(false);
+            twoCorn.SetActive(false);
+            twoPumpkin.SetActive(false);
+            twoTurnip.SetActive(true);
+            twoTomato.SetActive(false);
+
+            ResourceManager.turnipSeeds--;
+            cropTypeTwo = turnipNum;
+            currentCrop = twoTurnip.GetComponentInChildren<CropCoroutine>();
+            field2.setCurrentCrop(currentCrop);
+        }
     }
 
     private void twoTomatoButton()
     {
-        twoCarrot.SetActive(false);
-        twoCorn.SetActive(false);
-        twoPumpkin.SetActive(false);
-        twoTurnip.SetActive(false);
-        twoTomato.SetActive(true);
-        currentCrop = twoTomato.GetComponentInChildren<CropCoroutine>();
-        field2.setCurrentCrop(currentCrop);
+        if (ResourceManager.tomatoSeeds > zeroConst) {
+            twoCarrot.SetActive(false);
+            twoCorn.SetActive(false);
+            twoPumpkin.SetActive(false);
+            twoTurnip.SetActive(false);
+            twoTomato.SetActive(true);
+
+            ResourceManager.tomatoSeeds--;
+            cropTypeTwo = tomatoNum;
+            currentCrop = twoTomato.GetComponentInChildren<CropCoroutine>();
+            field2.setCurrentCrop(currentCrop);
+        }
     }
 
     //Field 3
     private void threeCarrotButton()
     {
-        threeCarrot.SetActive(true);
-        threeCorn.SetActive(false);
-        threePumpkin.SetActive(false);
-        threeTurnip.SetActive(false);
-        threeTomato.SetActive(false);
-        currentCrop = threeCarrot.GetComponentInChildren<CropCoroutine>();
-        field3.setCurrentCrop(currentCrop);
+        if (ResourceManager.carrotSeeds > zeroConst) {
+            threeCarrot.SetActive(true);
+            threeCorn.SetActive(false);
+            threePumpkin.SetActive(false);
+            threeTurnip.SetActive(false);
+            threeTomato.SetActive(false);
+
+            ResourceManager.carrotSeeds--;
+            cropTypeThree = carrotNum;
+            currentCrop = threeCarrot.GetComponentInChildren<CropCoroutine>();
+            field3.setCurrentCrop(currentCrop);
+        }
     }
 
     private void threeCornButton()
     {
-        threeCarrot.SetActive(false);
-        threeCorn.SetActive(true);
-        threePumpkin.SetActive(false);
-        threeTurnip.SetActive(false);
-        threeTomato.SetActive(false);
-        currentCrop = threeCorn.GetComponentInChildren<CropCoroutine>();
-        field3.setCurrentCrop(currentCrop);
+        if (ResourceManager.cornSeeds > zeroConst) {
+            threeCarrot.SetActive(false);
+            threeCorn.SetActive(true);
+            threePumpkin.SetActive(false);
+            threeTurnip.SetActive(false);
+            threeTomato.SetActive(false);
+
+            ResourceManager.cornSeeds--;
+            cropTypeThree = cornNum;
+            currentCrop = threeCorn.GetComponentInChildren<CropCoroutine>();
+            field3.setCurrentCrop(currentCrop);
+        }
     }
 
     private void threePumpkinButton()
     {
-        threeCarrot.SetActive(false);
-        threeCorn.SetActive(false);
-        threePumpkin.SetActive(true);
-        threeTurnip.SetActive(false);
-        threeTomato.SetActive(false);
-        currentCrop = threePumpkin.GetComponentInChildren<CropCoroutine>();
-        field3.setCurrentCrop(currentCrop);
+        if (ResourceManager.pumpkinSeeds > zeroConst) {
+            threeCarrot.SetActive(false);
+            threeCorn.SetActive(false);
+            threePumpkin.SetActive(true);
+            threeTurnip.SetActive(false);
+            threeTomato.SetActive(false);
+
+            ResourceManager.pumpkinSeeds--;
+            cropTypeThree = pumpkinNum;
+            currentCrop = threePumpkin.GetComponentInChildren<CropCoroutine>();
+            field3.setCurrentCrop(currentCrop);
+        }
     }
 
     private void threeTurnipButton()
     {
-        threeCarrot.SetActive(false);
-        threeCorn.SetActive(false);
-        threePumpkin.SetActive(false);
-        threeTurnip.SetActive(true);
-        threeTomato.SetActive(false);
-        currentCrop = threeTurnip.GetComponentInChildren<CropCoroutine>();
-        field3.setCurrentCrop(currentCrop);
+        if (ResourceManager.turnipSeeds > zeroConst) {
+            threeCarrot.SetActive(false);
+            threeCorn.SetActive(false);
+            threePumpkin.SetActive(false);
+            threeTurnip.SetActive(true);
+            threeTomato.SetActive(false);
+
+            ResourceManager.turnipSeeds--;
+            cropTypeThree = turnipNum;
+            currentCrop = threeTurnip.GetComponentInChildren<CropCoroutine>();
+            field3.setCurrentCrop(currentCrop);
+        }
     }
 
     private void threeTomatoButton()
     {
-        threeCarrot.SetActive(false);
-        threeCorn.SetActive(false);
-        threePumpkin.SetActive(false);
-        threeTurnip.SetActive(false);
-        threeTomato.SetActive(true);
-        currentCrop = threeTomato.GetComponentInChildren<CropCoroutine>();
-        field3.setCurrentCrop(currentCrop);
+        if (ResourceManager.tomatoSeeds > zeroConst) {
+            threeCarrot.SetActive(false);
+            threeCorn.SetActive(false);
+            threePumpkin.SetActive(false);
+            threeTurnip.SetActive(false);
+            threeTomato.SetActive(true);
+
+            ResourceManager.tomatoSeeds--;
+            cropTypeThree = tomatoNum;
+            currentCrop = threeTomato.GetComponentInChildren<CropCoroutine>();
+            field3.setCurrentCrop(currentCrop);
+        }
     }
 
     //Field 4
     private void fourCarrotButton()
     {
-        fourCarrot.SetActive(true);
-        fourCorn.SetActive(false);
-        fourPumpkin.SetActive(false);
-        fourTurnip.SetActive(false);
-        fourTomato.SetActive(false);
-        currentCrop = fourCarrot.GetComponentInChildren<CropCoroutine>();
-        field4.setCurrentCrop(currentCrop);
+        if (ResourceManager.carrotSeeds > zeroConst) {
+            fourCarrot.SetActive(true);
+            fourCorn.SetActive(false);
+            fourPumpkin.SetActive(false);
+            fourTurnip.SetActive(false);
+            fourTomato.SetActive(false);
+
+            ResourceManager.carrotSeeds--;
+            cropTypeFour = carrotNum;
+            currentCrop = fourCarrot.GetComponentInChildren<CropCoroutine>();
+            field4.setCurrentCrop(currentCrop);
+        }
     }
 
     private void fourCornButton()
     {
-        fourCarrot.SetActive(false);
-        fourCorn.SetActive(true);
-        fourPumpkin.SetActive(false);
-        fourTurnip.SetActive(false);
-        fourTomato.SetActive(false);
-        currentCrop = fourCorn.GetComponentInChildren<CropCoroutine>();
-        field4.setCurrentCrop(currentCrop);
+        if (ResourceManager.cornSeeds > zeroConst) {
+            fourCarrot.SetActive(false);
+            fourCorn.SetActive(true);
+            fourPumpkin.SetActive(false);
+            fourTurnip.SetActive(false);
+            fourTomato.SetActive(false);
+
+            ResourceManager.cornSeeds--;
+            cropTypeFour = cornNum;
+            currentCrop = fourCorn.GetComponentInChildren<CropCoroutine>();
+            field4.setCurrentCrop(currentCrop);
+        }
     }
 
     private void fourPumpkinButton()
     {
-        fourCarrot.SetActive(false);
-        fourCorn.SetActive(false);
-        fourPumpkin.SetActive(true);
-        fourTurnip.SetActive(false);
-        fourTomato.SetActive(false);
-        currentCrop = fourPumpkin.GetComponentInChildren<CropCoroutine>();
-        field4.setCurrentCrop(currentCrop);
+        if (ResourceManager.pumpkinSeeds > zeroConst) {
+            fourCarrot.SetActive(false);
+            fourCorn.SetActive(false);
+            fourPumpkin.SetActive(true);
+            fourTurnip.SetActive(false);
+            fourTomato.SetActive(false);
+
+            ResourceManager.pumpkinSeeds--;
+            cropTypeFour = pumpkinNum;
+            currentCrop = fourPumpkin.GetComponentInChildren<CropCoroutine>();
+            field4.setCurrentCrop(currentCrop);
+        }
     }
 
     private void fourTurnipButton()
     {
-        fourCarrot.SetActive(false);
-        fourCorn.SetActive(false);
-        fourPumpkin.SetActive(false);
-        fourTurnip.SetActive(true);
-        fourTomato.SetActive(false);
-        currentCrop = fourTurnip.GetComponentInChildren<CropCoroutine>();
-        field4.setCurrentCrop(currentCrop);
+        if (ResourceManager.turnipSeeds > zeroConst) {
+            fourCarrot.SetActive(false);
+            fourCorn.SetActive(false);
+            fourPumpkin.SetActive(false);
+            fourTurnip.SetActive(true);
+            fourTomato.SetActive(false);
+
+            ResourceManager.turnipSeeds--;
+            cropTypeFour = turnipNum;
+            currentCrop = fourTurnip.GetComponentInChildren<CropCoroutine>();
+            field4.setCurrentCrop(currentCrop);
+        }
     }
 
     private void fourTomatoButton()
     {
-        fourCarrot.SetActive(false);
-        fourCorn.SetActive(false);
-        fourPumpkin.SetActive(false);
-        fourTurnip.SetActive(false);
-        fourTomato.SetActive(true);
-        currentCrop = fourTomato.GetComponentInChildren<CropCoroutine>();
-        field4.setCurrentCrop(currentCrop);
+        if (ResourceManager.tomatoSeeds > zeroConst) {
+            fourCarrot.SetActive(false);
+            fourCorn.SetActive(false);
+            fourPumpkin.SetActive(false);
+            fourTurnip.SetActive(false);
+            fourTomato.SetActive(true);
+
+            ResourceManager.tomatoSeeds--;
+            cropTypeFour = tomatoNum;
+            currentCrop = fourTomato.GetComponentInChildren<CropCoroutine>();
+            field4.setCurrentCrop(currentCrop);
+        }
     }
 
     // Disables all crops in a field

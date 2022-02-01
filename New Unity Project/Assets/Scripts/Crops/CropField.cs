@@ -86,7 +86,7 @@ public class CropField : MonoBehaviour
         {
             if ((harvestable) && (Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.Space)))
             {
-                //+1 crop
+                increaseCrop();
                 disableCrops();
                 currentCrop = null;
                 harvestable = false;
@@ -101,7 +101,7 @@ public class CropField : MonoBehaviour
         {
             if ((harvestable) && (Input.GetKeyDown(KeyCode.Return) || Input.GetKey(KeyCode.Return)))
             {
-                //+1 crop
+                increaseCrop();
                 disableCrops();
                 currentCrop = null;
                 harvestable = false;
@@ -128,6 +128,88 @@ public class CropField : MonoBehaviour
                 break;
             case 4:
                 CM.disableField4();
+                break;
+        }
+    }
+
+    private void increaseCrop()
+    {
+        switch (fieldNumber) {
+            case 1:
+                switch (CM.cropTypeOne) {
+                    case 1:
+                        ResourceManager.carrots++;
+                        break;
+                    case 2:
+                        ResourceManager.corn++;
+                        break;
+                    case 3:
+                        ResourceManager.pumpkins++;
+                        break;
+                    case 4:
+                        ResourceManager.turnips++;
+                        break;
+                    case 5:
+                        ResourceManager.tomatoes++;
+                        break;
+                }
+                break;
+            case 2:
+                switch (CM.cropTypeTwo) {
+                    case 1:
+                        ResourceManager.carrots++;
+                        break;
+                    case 2:
+                        ResourceManager.corn++;
+                        break;
+                    case 3:
+                        ResourceManager.pumpkins++;
+                        break;
+                    case 4:
+                        ResourceManager.turnips++;
+                        break;
+                    case 5:
+                        ResourceManager.tomatoes++;
+                        break;
+                }
+                break;
+            case 3:
+                switch (CM.cropTypeThree) {
+                    case 1:
+                        ResourceManager.carrots++;
+                        break;
+                    case 2:
+                        ResourceManager.corn++;
+                        break;
+                    case 3:
+                        ResourceManager.pumpkins++;
+                        break;
+                    case 4:
+                        ResourceManager.turnips++;
+                        break;
+                    case 5:
+                        ResourceManager.tomatoes++;
+                        break;
+                }
+                break;
+            case 4:
+                switch (CM.cropTypeFour) {
+                    case 1:
+                        ResourceManager.carrots++;
+                        break;
+                    case 2:
+                        ResourceManager.corn++;
+                        break;
+                    case 3:
+                        ResourceManager.pumpkins++;
+                        break;
+                    case 4:
+                        ResourceManager.turnips++;
+                        break;
+                    case 5:
+                        ResourceManager.tomatoes++;
+                        break;
+                }
                 break;
         }
     }

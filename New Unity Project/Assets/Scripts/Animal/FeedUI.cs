@@ -11,13 +11,12 @@ public class FeedUI : MonoBehaviour
     [SerializeField] private Button duckButton;
     [SerializeField] private Button pigButton;
     [SerializeField] private Button sheepButton;
-    [SerializeField] private ResourceManager RM;
 
-    public Animal chicken;
-    public Animal cow;
-    public Animal duck;
-    public Animal pig;
-    public Animal sheep;
+    public Animal chicken = null;
+    public Animal cow = null;
+    public Animal duck = null;
+    public Animal pig = null;
+    public Animal sheep = null;
 
     private int chickCost = 10;
     private int cowCost = 15;
@@ -36,21 +35,22 @@ public class FeedUI : MonoBehaviour
     }
 
     // Checks whether the animal's product is on cooldown or if the player does not have the animal
-    private void OnEnable()
+    public void checkButton()
     {
-        if (chicken.gameObject == null || chicken.getOnCD()) {
+
+        if (chicken == null || chicken.getOnCD()) {
             chickenButton.gameObject.SetActive(false);
         }
-        if (cow.gameObject == null || cow.getOnCD()) {
+        if (cow == null || cow.getOnCD()) {
             cowButton.gameObject.SetActive(false);
         }
-        if (duck.gameObject == null || duck.getOnCD()) {
+        if (duck == null || duck.getOnCD()) {
             duckButton.gameObject.SetActive(false);
         }
-        if (pig.gameObject == null || pig.getOnCD()) {
+        if (pig == null || pig.getOnCD()) {
             pigButton.gameObject.SetActive(false);
         }
-        if (sheep.gameObject == null || sheep.getOnCD()) {
+        if (sheep == null || sheep.getOnCD()) {
             sheepButton.gameObject.SetActive(false);
         }
     }
@@ -58,46 +58,46 @@ public class FeedUI : MonoBehaviour
     // These methods all check if the player has enough money to feed them: if they do, the player pays that money, they gain the resource, and the animal goes on cooldown
     private void chickGoesCluck()
     {
-        if(RM.money >= chickCost) {
-            ResourceManager.eggs++;
-            RM.money -= chickCost;
+        if(ResourceManager.money >= chickCost && !chicken.getOnCD()) {
             chicken.StartCooldown();
+            ResourceManager.eggs++;
+            ResourceManager.money -= chickCost;
         }
     }
 
     private void cowGoesMoo()
     {
-        if (RM.money >= cowCost) {
-            ResourceManager.milk++;
-            RM.money -= cowCost;
+        if (ResourceManager.money >= cowCost && !cow.getOnCD()) {
             cow.StartCooldown();
+            ResourceManager.milk++;
+            ResourceManager.money -= cowCost;
         }
     }
 
     private void duckGoesQuack()
     {
-        if (RM.money >= duckCost) {
-            ResourceManager.feathers++;
-            RM.money -= duckCost;
+        if (ResourceManager.money >= duckCost && !duck.getOnCD()) {
             duck.StartCooldown();
+            ResourceManager.feathers++;
+            ResourceManager.money -= duckCost;
         }
     }
 
     private void pigGoesOink()
     {
-        if (RM.money >= pigCost) {
-            ResourceManager.bacon++;
-            RM.money -= pigCost;
+        if (ResourceManager.money >= pigCost && !pig.getOnCD()) {
             pig.StartCooldown();
+            ResourceManager.bacon++;
+            ResourceManager.money -= pigCost;
         }
     }
 
     private void sheepGoesBaa()
     {
-        if (RM.money >= sheepCost) {
-            ResourceManager.wool++;
-            RM.money -= sheepCost;
+        if (ResourceManager.money >= sheepCost && !sheep.getOnCD()) {
             sheep.StartCooldown();
+            ResourceManager.wool++;
+            ResourceManager.money -= sheepCost;
         }
     }
 

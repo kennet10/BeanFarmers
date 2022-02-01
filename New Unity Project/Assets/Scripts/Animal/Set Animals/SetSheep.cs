@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class SetSheep : MonoBehaviour
 {
-    [SerializeField] private FeedUI ui;
-    private void OnEnable()
+    private void Start()
     {
-        ui.sheep = GetComponent<Animal>();
+        GameObject menu = GameObject.FindGameObjectWithTag("FeedUI");
+        FeedUI ui = menu.GetComponent<FeedUI>();
+        ui.sheep = gameObject.GetComponent<Animal>();
     }
 }
