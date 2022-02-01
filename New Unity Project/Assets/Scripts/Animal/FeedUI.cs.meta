@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 6b302712362013847bb427ec9d1b5db4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - chickenButton: {instanceID: 0}
+  - cowButton: {instanceID: 0}
+  - duckButton: {instanceID: 0}
+  - pigButton: {instanceID: 0}
+  - sheepButton: {instanceID: 0}
+  - chicken: {fileID: -8545863452226947482, guid: 3b1e3e9155d404942bc65d9aa80120ba, type: 3}
+  - cow: {instanceID: 0}
+  - duck: {instanceID: 0}
+  - pig: {instanceID: 0}
+  - sheep: {instanceID: 0}
+  - RM: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

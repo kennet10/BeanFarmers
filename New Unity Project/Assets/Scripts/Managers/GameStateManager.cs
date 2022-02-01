@@ -38,8 +38,6 @@ public class GameStateManager : MonoBehaviour
         m_State = GAMESTATE.PLAYING;
         SceneManager.LoadScene(1);
 
-        // Haley Vlahos
-        //ResourceManager.SetupResources();
     }
 
     //End the game

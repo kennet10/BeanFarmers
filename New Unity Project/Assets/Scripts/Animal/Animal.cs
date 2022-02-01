@@ -26,6 +26,11 @@ public class Animal : MonoBehaviour
         return buy_cost;
     }
 
+    public bool getOnCD()
+    {
+        return onCD;
+    }
+
     // Feed the animal for and get one of their products
     public void StartCooldown()
     {

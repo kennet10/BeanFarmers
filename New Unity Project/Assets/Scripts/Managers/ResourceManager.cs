@@ -107,9 +107,6 @@ public class ResourceManager : MonoBehaviour
             for(int i = 0; i < counters.Count; i++) {
                 counters[i].text = displayRsrc[i].ToString();
             }
-            //foreach (int i in displayRsrc) {
-            //    counters[i].text = displayRsrc[i].ToString();
-            //}
         }
         moneyDisplay.text = "$: " + money.ToString(); // Kenneth Tang
     }

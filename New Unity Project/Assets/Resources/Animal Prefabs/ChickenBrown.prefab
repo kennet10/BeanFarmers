@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23918865209778262}
   - component: {fileID: 95612955934908496}
   - component: {fileID: -8545863452226947482}
+  - component: {fileID: -6557051893277637036}
   m_Layer: 0
   m_Name: ChickenBrown
   m_TagString: Untagged
@@ -115,3 +116,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalSO: {fileID: 11400000, guid: a3b733c25e50bba4ab8bda9ba7cbe005, type: 2}
+  product: 0
+--- !u!114 &-6557051893277637036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206511787925574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef93ff6d9fd45b1468ddc652d0e064c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ui: {fileID: 8811568847044553672, guid: fd3e1e4d71fa7d448938b487a1ef036c, type: 3}
