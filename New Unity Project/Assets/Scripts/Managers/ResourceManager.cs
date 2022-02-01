@@ -7,11 +7,11 @@ using UnityEngine.UI;
 // Made by Haley Vlahos
 public class ResourceManager : MonoBehaviour
 {
-    // Money
-    private static int money = 250;
+    // Money by Kenneth Tang
+    public int money {get; set;}
     [SerializeField] private TextMeshProUGUI moneyDisplay;
 
-    //Crop and AnimalSOs
+    //Crop and AnimalSOs by Kenneth Tang
     private AnimalSO[] animalSO;
     private CropSO[] cropSO;
 
@@ -111,7 +111,7 @@ public class ResourceManager : MonoBehaviour
             //    counters[i].text = displayRsrc[i].ToString();
             //}
         }
-        moneyDisplay.text = "$: " + money.ToString();
+        moneyDisplay.text = "$: " + money.ToString(); // Kenneth Tang
     }
 
     private void updateLists()

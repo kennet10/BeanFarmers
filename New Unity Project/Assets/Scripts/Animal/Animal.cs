@@ -5,7 +5,8 @@ using UnityEngine;
 // Made by Kenneth Tang
 public class Animal : MonoBehaviour
 {
-    [SerializeField] AnimalSO animalSO;
+    [SerializeField] private AnimalSO animalSO;
+    [SerializeField] private int product;
 
     private int buy_cost;
     private int sell_price;
@@ -26,10 +27,9 @@ public class Animal : MonoBehaviour
     }
 
     // Feed the animal for and get one of their products
-    public void FeedAnimal()
+    public void StartCooldown()
     {
         StartCoroutine(GoOnCooldown());
-        //call function to increase product count by 1
     }
 
     // Go on cooldown. While oncooldown, unable to get any products.
