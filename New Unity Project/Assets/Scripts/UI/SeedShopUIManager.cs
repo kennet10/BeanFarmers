@@ -45,7 +45,7 @@ public class SeedShopUIManager : MonoBehaviour
     // The following 5 functions check to see if players have the money to buy a seed, and if they do, takes their money and gives them a seed
     public void SetCarrotSeed()
     {
-        if (ResourceManager.money > seeds[0].GetBuyCost())
+        if (ResourceManager.money >= seeds[0].GetBuyCost())
         {
             ResourceManager.money -= seeds[0].GetBuyCost();
             ResourceManager.carrotSeeds++;
@@ -54,7 +54,7 @@ public class SeedShopUIManager : MonoBehaviour
 
     public void SetCornSeed()
     {
-        if(ResourceManager.money > seeds[1].GetBuyCost())
+        if(ResourceManager.money >= seeds[1].GetBuyCost())
         {
             ResourceManager.money -= seeds[1].GetBuyCost();
             ResourceManager.cornSeeds++;
@@ -63,7 +63,7 @@ public class SeedShopUIManager : MonoBehaviour
 
     public void SetPumpkinSeed()
     {
-        if (ResourceManager.money > seeds[2].GetBuyCost())
+        if (ResourceManager.money >= seeds[2].GetBuyCost())
         {
             ResourceManager.money -= seeds[2].GetBuyCost();
             ResourceManager.pumpkinSeeds++;
@@ -72,7 +72,7 @@ public class SeedShopUIManager : MonoBehaviour
 
     public void SetTomatoSeed()
     {
-        if (ResourceManager.money > seeds[3].GetBuyCost())
+        if (ResourceManager.money >= seeds[3].GetBuyCost())
         {
             ResourceManager.money -= seeds[3].GetBuyCost();
             ResourceManager.tomatoSeeds++;
@@ -81,7 +81,7 @@ public class SeedShopUIManager : MonoBehaviour
 
     public void SetTurnipSeed()
     {
-        if (ResourceManager.money > seeds[4].GetBuyCost())
+        if (ResourceManager.money >= seeds[4].GetBuyCost())
         {
             ResourceManager.money -= seeds[4].GetBuyCost();
             ResourceManager.turnipSeeds++;

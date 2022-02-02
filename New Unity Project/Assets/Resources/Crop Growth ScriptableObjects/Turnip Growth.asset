@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingSize: 0.5
   scaleSize: 1
-  growthTime: 25
+  growthTime: 30

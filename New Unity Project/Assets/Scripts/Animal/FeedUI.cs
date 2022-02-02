@@ -34,19 +34,19 @@ public class FeedUI : MonoBehaviour
 
     public void SetCow(Animal cowScript)
     {
-        chicken = cowScript;
+        cow = cowScript;
         cowButton.onClick.AddListener(cowGoesMoo);
     }
 
     public void SetDuck(Animal duckScript)
     {
-        chicken = duckScript;
+        duck = duckScript;
         duckButton.onClick.AddListener(duckGoesQuack);
     }
 
     public void SetPig(Animal pigScript)
     {
-        chicken = pigScript;
+        pig = pigScript;
         pigButton.onClick.AddListener(pigGoesOink);
     }
 

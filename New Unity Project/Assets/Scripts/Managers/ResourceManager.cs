@@ -56,7 +56,7 @@ public class ResourceManager : MonoBehaviour
     // For game startup, sets all resources to 0 unless it is a seed, in which you are given 1
     public static void SetupResources()
     {
-        money = 5000;
+        money = 0;
         //Seeds
         carrotSeeds = 1;
         cornSeeds = 0;
@@ -85,13 +85,25 @@ public class ResourceManager : MonoBehaviour
         for (int i = 0; i < crops.Count; i++)
         {
             money += crops[i] * cropSO[i].GetSellCost();
-            crops[i] = 0;
+            //crops[i] = 0;
         }
         for (int i = 0; i < animalProds.Count; i++)
         {
             money += animalProds[i] * animalSO[i].GetSellPrice();
-            animalProds[i] = 0;
+            //animalProds[i] = 0;
         }
+        //Crops
+        carrots = 0;
+        corn = 0;
+        pumpkins = 0;
+        tomatoes = 0;
+        turnips = 0;
+        //Animal Products
+        eggs = 0;
+        milk = 0;
+        feathers = 0;
+        bacon = 0;
+        wool = 0;
     }
 
 
