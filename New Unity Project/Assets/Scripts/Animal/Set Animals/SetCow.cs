@@ -8,6 +8,6 @@ public class SetCow : MonoBehaviour
     {
         GameObject menu = GameObject.FindGameObjectWithTag("FeedUI");
         FeedUI ui = menu.GetComponent<FeedUI>();
-        ui.cow = gameObject.GetComponent<Animal>();
+        ui.SetCow(gameObject.GetComponent<Animal>());
     }
 }

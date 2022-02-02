@@ -8,6 +8,6 @@ public class SetPig : MonoBehaviour
     {
         GameObject menu = GameObject.FindGameObjectWithTag("FeedUI");
         FeedUI ui = menu.GetComponent<FeedUI>();
-        ui.pig = gameObject.GetComponent<Animal>();
+        ui.SetPig(gameObject.GetComponent<Animal>());
     }
 }

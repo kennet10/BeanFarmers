@@ -2827,6 +2827,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 821278077}
     m_Modifications:
+    - target: {fileID: -2279035402785917087, guid: de6abd774f85e18408346a3233418242, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1055064919166404, guid: de6abd774f85e18408346a3233418242, type: 3}
       propertyPath: m_Name
       value: Pig
@@ -2875,7 +2879,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -2658538157523639637, guid: de6abd774f85e18408346a3233418242, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: de6abd774f85e18408346a3233418242, type: 3}
 --- !u!4 &309877264 stripped
 Transform:
@@ -4323,6 +4328,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 821278077}
     m_Modifications:
+    - target: {fileID: -7044598293836528595, guid: e82139b3bae6212439ea1e85ad29678b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1965851562501010, guid: e82139b3bae6212439ea1e85ad29678b, type: 3}
       propertyPath: m_Name
       value: SheepWhite
@@ -4371,7 +4380,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 830272067491673751, guid: e82139b3bae6212439ea1e85ad29678b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e82139b3bae6212439ea1e85ad29678b, type: 3}
 --- !u!4 &420762843 stripped
 Transform:
@@ -6203,7 +6213,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6242802019998066724, guid: 9ec060093457ad84ca2733cb15c2c41e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -6701222139043994037, guid: 9ec060093457ad84ca2733cb15c2c41e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9ec060093457ad84ca2733cb15c2c41e, type: 3}
 --- !u!4 &577660422 stripped
 Transform:
@@ -18112,6 +18127,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 821278077}
     m_Modifications:
+    - target: {fileID: -2439617989765522751, guid: 32026357c04e0e944835774b42e3c1b7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1522729216997060, guid: 32026357c04e0e944835774b42e3c1b7, type: 3}
       propertyPath: m_Name
       value: DuckWhite
@@ -18160,7 +18179,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -2735255553445319959, guid: 32026357c04e0e944835774b42e3c1b7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 32026357c04e0e944835774b42e3c1b7, type: 3}
 --- !u!4 &1757971020 stripped
 Transform:
@@ -20732,6 +20752,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 821278077}
     m_Modifications:
+    - target: {fileID: -8545863452226947482, guid: 3b1e3e9155d404942bc65d9aa80120ba, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1206511787925574, guid: 3b1e3e9155d404942bc65d9aa80120ba, type: 3}
       propertyPath: m_Name
       value: ChickenBrown
@@ -20780,7 +20804,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6557051893277637036, guid: 3b1e3e9155d404942bc65d9aa80120ba, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3b1e3e9155d404942bc65d9aa80120ba, type: 3}
 --- !u!4 &2054364049 stripped
 Transform:

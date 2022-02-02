@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class SetChicken : MonoBehaviour
 {
-    private void Start()
+    private void Awake()
     {
         GameObject menu = GameObject.FindGameObjectWithTag("FeedUI");
         FeedUI ui = menu.GetComponent<FeedUI>();
-        ui.chicken = gameObject.GetComponent<Animal>();
+        ui.SetChicken(gameObject.GetComponent<Animal>());
     }
 }

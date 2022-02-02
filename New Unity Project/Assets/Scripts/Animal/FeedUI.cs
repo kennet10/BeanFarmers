@@ -12,11 +12,11 @@ public class FeedUI : MonoBehaviour
     [SerializeField] private Button pigButton;
     [SerializeField] private Button sheepButton;
 
-    public Animal chicken = null;
-    public Animal cow = null;
-    public Animal duck = null;
-    public Animal pig = null;
-    public Animal sheep = null;
+    private Animal chicken = null;
+    private Animal cow = null;
+    private Animal duck = null;
+    private Animal pig = null;
+    private Animal sheep = null;
 
     private int chickCost = 10;
     private int cowCost = 15;
@@ -24,13 +24,35 @@ public class FeedUI : MonoBehaviour
     private int pigCost = 25;
     private int sheepCost = 30;
 
-    // Sets the button functions for the feeding menu
-    private void Awake()
+    // Following functions set their respective animal variable to a gameObject and adds a listener to their corresponding button
+    // Kenneth Tang
+    public void SetChicken(Animal chickenScript)
     {
+        chicken = chickenScript;
         chickenButton.onClick.AddListener(chickGoesCluck);
+    }
+
+    public void SetCow(Animal cowScript)
+    {
+        chicken = cowScript;
         cowButton.onClick.AddListener(cowGoesMoo);
+    }
+
+    public void SetDuck(Animal duckScript)
+    {
+        chicken = duckScript;
         duckButton.onClick.AddListener(duckGoesQuack);
+    }
+
+    public void SetPig(Animal pigScript)
+    {
+        chicken = pigScript;
         pigButton.onClick.AddListener(pigGoesOink);
+    }
+
+    public void SetSheep(Animal sheepScript)
+    {
+        sheep = sheepScript;
         sheepButton.onClick.AddListener(sheepGoesBaa);
     }
 
@@ -41,17 +63,37 @@ public class FeedUI : MonoBehaviour
         if (chicken == null || chicken.getOnCD()) {
             chickenButton.gameObject.SetActive(false);
         }
+        else
+        {
+            chickenButton.gameObject.SetActive(true);
+        }
         if (cow == null || cow.getOnCD()) {
             cowButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            cowButton.gameObject.SetActive(true);
         }
         if (duck == null || duck.getOnCD()) {
             duckButton.gameObject.SetActive(false);
         }
+        else
+        {
+            duckButton.gameObject.SetActive(true);
+        }
         if (pig == null || pig.getOnCD()) {
             pigButton.gameObject.SetActive(false);
         }
+        else
+        {
+            pigButton.gameObject.SetActive(true);
+        }
         if (sheep == null || sheep.getOnCD()) {
             sheepButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            sheepButton.gameObject.SetActive(true);
         }
     }
 
@@ -62,6 +104,8 @@ public class FeedUI : MonoBehaviour
             chicken.StartCooldown();
             ResourceManager.eggs++;
             ResourceManager.money -= chickCost;
+            checkButton();
+            chickenButton.gameObject.SetActive(false);
         }
     }
 
@@ -71,6 +115,8 @@ public class FeedUI : MonoBehaviour
             cow.StartCooldown();
             ResourceManager.milk++;
             ResourceManager.money -= cowCost;
+            checkButton();
+            cowButton.gameObject.SetActive(false);
         }
     }
 
@@ -80,6 +126,8 @@ public class FeedUI : MonoBehaviour
             duck.StartCooldown();
             ResourceManager.feathers++;
             ResourceManager.money -= duckCost;
+            checkButton();
+            duckButton.gameObject.SetActive(false);
         }
     }
 
@@ -89,6 +137,7 @@ public class FeedUI : MonoBehaviour
             pig.StartCooldown();
             ResourceManager.bacon++;
             ResourceManager.money -= pigCost;
+            pigButton.gameObject.SetActive(false);
         }
     }
 
@@ -98,6 +147,8 @@ public class FeedUI : MonoBehaviour
             sheep.StartCooldown();
             ResourceManager.wool++;
             ResourceManager.money -= sheepCost;
+            checkButton();
+            sheepButton.gameObject.SetActive(false);
         }
     }
 

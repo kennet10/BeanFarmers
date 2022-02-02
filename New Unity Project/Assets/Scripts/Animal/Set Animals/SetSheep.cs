@@ -8,6 +8,6 @@ public class SetSheep : MonoBehaviour
     {
         GameObject menu = GameObject.FindGameObjectWithTag("FeedUI");
         FeedUI ui = menu.GetComponent<FeedUI>();
-        ui.sheep = gameObject.GetComponent<Animal>();
+        ui.SetSheep(gameObject.GetComponent<Animal>());
     }
 }

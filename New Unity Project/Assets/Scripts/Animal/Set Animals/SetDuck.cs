@@ -8,6 +8,6 @@ public class SetDuck : MonoBehaviour
     {
         GameObject menu = GameObject.FindGameObjectWithTag("FeedUI");
         FeedUI ui = menu.GetComponent<FeedUI>();
-        ui.duck = gameObject.GetComponent<Animal>();
+        ui.SetDuck(gameObject.GetComponent<Animal>());
     }
 }

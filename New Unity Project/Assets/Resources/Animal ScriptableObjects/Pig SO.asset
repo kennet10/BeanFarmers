@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animalName: Pig
   buy_cost: 2000
-  product_price: 0
-  production_cd: 0
+  product_price: 700
+  production_cd: 50
   animal_prefab: {fileID: 1055064919166404, guid: de6abd774f85e18408346a3233418242, type: 3}
   animalImage: {fileID: 21300000, guid: 13854a4d5d1e6074c8929762d559730e, type: 3}

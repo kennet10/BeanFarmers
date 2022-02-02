@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animalName: Sheep
   buy_cost: 4000
-  product_price: 0
-  production_cd: 0
+  product_price: 1000
+  production_cd: 60
   animal_prefab: {fileID: 1965851562501010, guid: e82139b3bae6212439ea1e85ad29678b, type: 3}
   animalImage: {fileID: 21300000, guid: 2d8045511ef972d43b17ddaa217ad4bb, type: 3}

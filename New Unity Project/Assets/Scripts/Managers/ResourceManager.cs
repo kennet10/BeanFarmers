@@ -56,13 +56,13 @@ public class ResourceManager : MonoBehaviour
     // For game startup, sets all resources to 0 unless it is a seed, in which you are given 1
     public static void SetupResources()
     {
-        money = 250;
+        money = 5000;
         //Seeds
         carrotSeeds = 1;
-        cornSeeds = 2;
-        pumpkinSeeds = 3;
-        turnipSeeds = 4;
-        tomatoSeeds = 5;
+        cornSeeds = 0;
+        pumpkinSeeds = 0;
+        turnipSeeds = 0;
+        tomatoSeeds = 0;
         //Crops
         carrots = 0;
         corn = 0;
@@ -95,7 +95,7 @@ public class ResourceManager : MonoBehaviour
     }
 
 
-    // Updates each of the text counters to match the variables, both lists are in alphabetical order
+    // Updates each of the text counters to match the variables, both lists are in alphabetical order, if wool > 0, end the game!
     private void Update()
     {
         // These were used to debug the resource values
@@ -118,6 +118,11 @@ public class ResourceManager : MonoBehaviour
             }
         }
         moneyDisplay.text = "$: " + money.ToString(); // Kenneth Tang
+
+        if (wool > 0)
+        {
+            GameStateManager.EndGame();
+        }
     }
 
     private void updateLists()

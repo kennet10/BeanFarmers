@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animalName: Duck
   buy_cost: 1000
-  product_price: 0
-  production_cd: 0
+  product_price: 400
+  production_cd: 40
   animal_prefab: {fileID: 1522729216997060, guid: 32026357c04e0e944835774b42e3c1b7, type: 3}
   animalImage: {fileID: 21300000, guid: 168e925d9fa524843b63994b48fcae45, type: 3}
