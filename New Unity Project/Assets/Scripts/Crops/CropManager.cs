@@ -107,6 +107,7 @@ public class CropManager : MonoBehaviour
         }
     }
 
+    // Each function is for the buttons specified for each field: if the player has a seed, they enable the crop, decrement the seeds, sets the current crop and type
     // Field 1
     private void oneCarrotButton()
     {
@@ -431,7 +432,7 @@ public class CropManager : MonoBehaviour
         }
     }
 
-    // Disables all crops in a field
+    // Disables all crops in each field
     public void disableField1()
     {
         oneCarrot.SetActive(false);

@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
         turnAxis = "Horizontal" + playerNum;
     }
 
-    // Makes sure it isn't moving atm, but can be affected by physics when enabled.
+    // Makes sure it isn't moving atm, but can be affected by physics when enabled
     private void OnEnable()
     {
         rb.isKinematic = false;
@@ -40,34 +40,34 @@ public class PlayerMovement : MonoBehaviour
         rb.isKinematic = true;
     }
 
-    // Store the player's input and make sure the audio for the engine is playing.
+    // Store the player's input and make sure the audio for the engine is playing
     private void Update()
     {
         moveInputValue = Input.GetAxis(axisName);
         turnInputValue = Input.GetAxis(turnAxis);
     }
 
-    // Move and turn the tank.
+    // Move and turn the player
     private void FixedUpdate()
     {
         Move();
         Turn();
     }
 
-    // Adjust the position of the tank based on the player's input.
+    // Adjust the position of the player based on the input
     private void Move()
     {
         Vector3 movement = transform.forward * moveInputValue * speed * Time.deltaTime;
         rb.MovePosition(rb.position + movement);
     }
 
-    // Adjust the rotation of the tank based on the player's input.
+    // Adjust the rotation of the player based on the input
     private void Turn()
     {
         float turn = turnInputValue * turnSpeed * Time.deltaTime;
         Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
 
-        // The beans kept turning when you stopped pressing the button, if statement stops that
+        // The beans kept turning when you stopped pressing the button, if statement helps stops that
         if(Mathf.Abs(turnInputValue) > 0.1f) {
             rb.MoveRotation(rb.rotation * turnRotation);
         }

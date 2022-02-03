@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Made by Haley Vlahos
+// Made by Haley Vlahos and Kenneth Tang
 public class FeedUI : MonoBehaviour
 {
     [SerializeField] private Button chickenButton;
@@ -57,6 +57,7 @@ public class FeedUI : MonoBehaviour
     }
 
     // Checks whether the animal's product is on cooldown or if the player does not have the animal
+    // Worked on by both Haley Vlahos and Kenneth Tang
     public void checkButton()
     {
 
@@ -97,7 +98,9 @@ public class FeedUI : MonoBehaviour
         }
     }
 
-    // These methods all check if the player has enough money to feed them: if they do, the player pays that money, they gain the resource, and the animal goes on cooldown
+    // These methods all check if the player has enough money to feed them:
+    // If they do, the player pays that money, they gain the resource, and the animal goes on cooldown
+    // These were made by Haley Vlahos
     private void chickGoesCluck()
     {
         if(ResourceManager.money >= chickCost && !chicken.getOnCD()) {

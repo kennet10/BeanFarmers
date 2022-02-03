@@ -19,7 +19,7 @@ public class SoundTimer : MonoBehaviour
         StartCoroutine(waitSound(timeMin, timeMax));
     }
 
-    //Starts the playSound coroutine if it is not currently playing
+    //Starts the playSound coroutine if it is not currently playing and not waiting for the current sound to end
     void Update()
     {
         if (!animalSound.isPlaying && !waiting) {
@@ -27,7 +27,7 @@ public class SoundTimer : MonoBehaviour
         }
     }
 
-    // Plays the animal sound after a range of seconds between min and max
+    // Plays the animal sound after a range of seconds between min and max, then waits for the length of the sound clip
     private IEnumerator waitSound(int min, int max)
     {
         waiting = true;
