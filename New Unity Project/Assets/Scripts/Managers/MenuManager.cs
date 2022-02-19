@@ -6,9 +6,14 @@ using UnityEngine;
 public class MenuManager : MonoBehaviour
 {
     // Start new game
-    public void OnClickNewGame()
+    public void OnClickNewGame1P()
     {
-        GameStateManager.NewGame();
+        GameStateManager.NewGame1P();
+    }
+
+    public void OnClickNewGame2P()
+    {
+        GameStateManager.NewGame2P();
     }
 
     // Quit Game

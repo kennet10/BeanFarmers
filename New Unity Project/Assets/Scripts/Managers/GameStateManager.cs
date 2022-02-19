@@ -16,7 +16,14 @@ public class GameStateManager : MonoBehaviour
         GAMEEND,
     }
 
+    enum NUMPLAYERS
+    {
+        ONE = 1,
+        TWO = 2
+    }
+
     private static GAMESTATE m_State;
+    private static NUMPLAYERS m_Num_Players;
 
     private void Awake()
     {
@@ -30,12 +37,27 @@ public class GameStateManager : MonoBehaviour
         {
             Destroy(this);
         }
+        m_Num_Players = NUMPLAYERS.ONE;
+    }
+
+    public static int GetNumPlayers()
+    {
+        return (int)(m_Num_Players);
     }
 
     //Start a new game
-    public static void NewGame()
+    public static void NewGame1P()
     {
         m_State = GAMESTATE.PLAYING;
+        m_Num_Players = NUMPLAYERS.ONE;
+        SceneManager.LoadScene(1);
+
+    }
+
+    public static void NewGame2P()
+    {
+        m_State = GAMESTATE.PLAYING;
+        m_Num_Players = NUMPLAYERS.TWO;
         SceneManager.LoadScene(1);
 
     }

@@ -7,6 +7,7 @@ TagManager:
   - Spawnpoint
   - FeedUI
   - ResourceManager
+  - TargetGroup
   layers:
   - Default
   - TransparentFX
