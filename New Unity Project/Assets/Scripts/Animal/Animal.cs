@@ -19,6 +19,8 @@ public class Animal : MonoBehaviour
         sell_price = animalSO.GetSellPrice();
         productionCD = animalSO.GetProductionCD();
         onCD = false;
+
+        WolfAI.animals.Add(gameObject);
     }
 
     public int GetBuyCost()

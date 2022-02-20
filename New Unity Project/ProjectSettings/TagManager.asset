@@ -8,6 +8,7 @@ TagManager:
   - FeedUI
   - ResourceManager
   - TargetGroup
+  - Animal
   layers:
   - Default
   - TransparentFX

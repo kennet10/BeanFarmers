@@ -85,12 +85,10 @@ public class ResourceManager : MonoBehaviour
         for (int i = 0; i < crops.Count; i++)
         {
             money += crops[i] * cropSO[i].GetSellCost();
-            //crops[i] = 0;
         }
         for (int i = 0; i < animalProds.Count; i++)
         {
             money += animalProds[i] * animalSO[i].GetSellPrice();
-            //animalProds[i] = 0;
         }
         //Crops
         carrots = 0;
