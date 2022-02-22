@@ -6,6 +6,7 @@ using UnityEngine;
 public class CropCoroutine : MonoBehaviour
 {
     private bool cropGrowing;
+    private MeshRenderer meshRenderer;
     [SerializeField] private CropGrowthSO cropGrowth;
 
     public bool isGrowing()
@@ -15,11 +16,13 @@ public class CropCoroutine : MonoBehaviour
 
     private void OnEnable()
     {
+        meshRenderer = gameObject.GetComponent<MeshRenderer>();
         StartCoroutine(Growing());
     }
 
     private IEnumerator Growing()
     {
+        meshRenderer.material.color = Color.yellow;
         cropGrowing = true;
 
         Vector3 originalScale = new Vector3(cropGrowth.startingSize, cropGrowth.startingSize, cropGrowth.startingSize);
@@ -38,6 +41,7 @@ public class CropCoroutine : MonoBehaviour
         }
 
         transform.localScale = endScale;
+        meshRenderer.material.color = Color.green;
         cropGrowing = false;
     }
 }
