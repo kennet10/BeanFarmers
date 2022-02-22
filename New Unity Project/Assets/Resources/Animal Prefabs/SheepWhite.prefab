@@ -493,7 +493,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.75
-  m_Speed: 3.5
+  m_Speed: 2.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -518,11 +518,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: -529800504877835590}
-  pursuer: {fileID: 8828531046783882246, guid: d76f149bcdc44ab4d809f4baaa30b858, type: 3}
+  wolves: []
   SleepingText: {fileID: 760252412}
   FleeDistance: 5
   WanderRadius: 5
-  WanderChance: 0.5
+  WanderChance: 0.7
   WanderTime: 3
   SleepTime: 5
 --- !u!54 &640692377

@@ -9,6 +9,7 @@ TagManager:
   - ResourceManager
   - TargetGroup
   - Animal
+  - Wolf
   layers:
   - Default
   - TransparentFX
