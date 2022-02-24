@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
+// Made by Kenneth Tang
 public class CameraManager : MonoBehaviour
 {
     private int numPlayers;
     private GameObject[] players;
     [SerializeField] private CinemachineTargetGroup targetGroup;
 
+    // Sets the proper players active and assigns them to the targetGrouop of the camera
     public void Start()
     {
         numPlayers = GameStateManager.GetNumPlayers();

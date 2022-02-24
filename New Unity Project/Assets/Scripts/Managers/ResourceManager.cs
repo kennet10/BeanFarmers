@@ -21,7 +21,7 @@ public class ResourceManager : MonoBehaviour
     public static int pumpkinSeeds;
     public static int turnipSeeds;
     public static int tomatoSeeds;
-    private static List<int> seeds = new List<int>{carrotSeeds, cornSeeds, pumpkinSeeds, turnipSeeds, tomatoSeeds};
+    public static List<int> seeds = new List<int>{carrotSeeds, cornSeeds, pumpkinSeeds, turnipSeeds, tomatoSeeds};
 
     // Crops
     public static int carrots;
@@ -113,7 +113,7 @@ public class ResourceManager : MonoBehaviour
         //tomatoes = (int)slide.value;
         //wool = (int)slide.value;
 
-
+        updateLists();
         displayRsrc = new List<int> {carrots, corn, pumpkins, tomatoes, turnips, eggs, milk, feathers, bacon, wool };
         if (counters.Count == displayRsrc.Count) {
             for(int i = 0; i < counters.Count; i++) {

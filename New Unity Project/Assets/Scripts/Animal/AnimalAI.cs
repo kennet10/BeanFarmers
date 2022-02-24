@@ -39,9 +39,6 @@ public class AnimalAI : MonoBehaviour
     private void Update()
     {
 
-
-        // FLEE
-
         // check to see if pursuer is close enough to flee from
         if (!sleeping) {
             Vector3 closestWolf = findClosest(wolves);
@@ -82,6 +79,7 @@ public class AnimalAI : MonoBehaviour
 
     }
 
+    // The animal sleeps for SleepTime and does nothing in the mean time
     private IEnumerator Sleep()
     {
         SleepingText.enabled = true;
@@ -89,11 +87,11 @@ public class AnimalAI : MonoBehaviour
         yield return new WaitForSeconds(SleepTime);
         SleepingText.enabled = false;
 
-        //acting = false;
         sleeping = false;
         Debug.Log("Sleep End");
     }
 
+    // Runs away from location
     private void Flee(Vector3 location)
     {
         Vector3 DirToPursuer = location - transform.position;
@@ -103,10 +101,10 @@ public class AnimalAI : MonoBehaviour
         agent.SetDestination(newPos);
 
 
-        //acting = false;
         //Debug.Log("Flee End");
     }
 
+    // Wanders around based on the radius and distance of wanderRadius
     IEnumerator Wander()
     {
         Vector3 randomDirection = Random.insideUnitSphere * WanderRadius;
@@ -120,11 +118,11 @@ public class AnimalAI : MonoBehaviour
 
         yield return new WaitForSeconds(WanderTime);
 
-        //acting = false;
         //Debug.Log("Wander End");
     }
 
     // Made by Haley Vlahos as in WolfAI
+    // Finds the current closest object in theList to this gameObject
     private Vector3 findClosest(List<GameObject> theList)
     {
         // This is just a super high number so that anything will be closer and override

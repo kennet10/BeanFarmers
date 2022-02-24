@@ -5,6 +5,12 @@ using UnityEngine;
 // Made by Kenneth Tang
 public class MenuManager : MonoBehaviour
 {
+    // To Menu Screen
+    public void ToMenu()
+    {
+        GameStateManager.QuitToTitle();
+    }
+
     // Start new game
     public void OnClickNewGame1P()
     {
