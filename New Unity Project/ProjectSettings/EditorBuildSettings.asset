@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TitleScene.unity
     guid: bf2a3d10eaa9bd74aa61bafaf244e656
+  - enabled: 0
+    path: Assets/Scenes/FarmScene Backup.unity
+    guid: ef5629b2b0f8d7a45a194d2c2441b1bf
   - enabled: 1
     path: Assets/Scenes/FarmScene.unity
-    guid: ef5629b2b0f8d7a45a194d2c2441b1bf
+    guid: d04132005e4498b4590853e622ef4073
   - enabled: 1
     path: Assets/Scenes/EndScene.unity
     guid: 4ffa95f227563c647800d40d683fb2c5

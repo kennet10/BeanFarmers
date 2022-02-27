@@ -9,7 +9,7 @@ public class PastureTrigger : MonoBehaviour
     [SerializeField] private TextMeshProUGUI triggerText;
     [SerializeField] private GameObject animalMenu;
     [SerializeField] private FeedUI Feeding;
-    private int playerNum;
+    private int playerNum = 1;
 
 
     // Sets the text and activation key depending on which player last entered the range
@@ -21,11 +21,11 @@ public class PastureTrigger : MonoBehaviour
 
             if (PM.playerNum == 1) {
                 triggerText.text = "Press Space to feed animals!";
-                playerNum = 1;
+                playerNum = PM.playerNum;
             }
             if (PM.playerNum == 2) {
                 triggerText.text = "Press Enter to feed animals!";
-                playerNum = 2;
+                playerNum = PM.playerNum;
             }
 
             triggerText.gameObject.SetActive(true);
@@ -44,18 +44,12 @@ public class PastureTrigger : MonoBehaviour
     // Pressing your submit key will open the animalMenu
     private void OnTriggerStay(Collider other)
     {
-        if (playerNum == 1) {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.Space)) {
+        string button = "Submit" + playerNum;
+        if (Input.GetButtonDown(button) || Input.GetButton(button)) {
                 animalMenu.SetActive(true);
                 triggerText.gameObject.SetActive(false);
                 Feeding.checkButton();
-            }
-        } else if (playerNum == 2) {
-            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKey(KeyCode.Return)) {
-                animalMenu.SetActive(true);
-                triggerText.gameObject.SetActive(false);
-                Feeding.checkButton();
-            }
         }
+        
     }
 }
