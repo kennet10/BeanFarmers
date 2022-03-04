@@ -34,7 +34,7 @@ public class WolfAI : MonoBehaviour
 
     // If the closest player is closer than the targetRange, wolf flees,
     // else if closest animal is closer than the targetRange, wolf target, otherwise wolf wanders around
-    private void Update()
+    private void FixedUpdate()
     {
         Vector3 targetAnim = findClosest(animals);
         Vector3 targetPlayer = findClosest(players);

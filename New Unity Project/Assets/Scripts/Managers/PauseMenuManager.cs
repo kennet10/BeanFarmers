@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseMenuManager : MonoBehaviour
 {
-    private static bool gamePaused;
+    public static bool gamePaused;
+    [SerializeField] private Canvas pauseCanvas;
 
     private void Start()
     {
@@ -13,28 +15,37 @@ public class PauseMenuManager : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetButtonDown("Cancel"))
         {
             if(gamePaused == false)
             {
                 PauseGame();
+                Debug.Log(gamePaused);
             }
-            if(gamePaused == true)
+            else if(gamePaused == true)
             {
                 ResumeGame();
+                Debug.Log(gamePaused);
             }
         }
     }
 
-    public static void PauseGame()
+    public void PauseGame()
     {
         Time.timeScale = 0;
         gamePaused = true;
+        pauseCanvas.gameObject.SetActive(true);
     }
 
-    public static void ResumeGame()
+    public void ResumeGame()
     { 
         Time.timeScale = 1;
         gamePaused = false;
+        pauseCanvas.gameObject.SetActive(false);
+    }
+
+    public void QuitToTitle()
+    {
+        GameStateManager.QuitToTitle();
     }
 }
