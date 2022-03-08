@@ -141,5 +141,4 @@ public class ResourceManager : MonoBehaviour
         crops = new List<int> { carrots, corn, pumpkins, tomatoes, turnips };
         animalProds = new List<int> { eggs, milk, feathers, bacon, wool };
     }
-
 }

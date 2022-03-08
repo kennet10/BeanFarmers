@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Made by Haley Vlahos and Kenneth Tang
+// Made by Haley Vlahos, Kenneth Tang, and Ben Hamilton
 public class FeedUI : MonoBehaviour
 {
     [SerializeField] private Button chickenButton;
@@ -155,4 +155,14 @@ public class FeedUI : MonoBehaviour
         }
     }
 
+    //AI tries to feed each animal
+    //Made by Ben Hamilton
+    public void AIFeed()
+    {
+        sheepGoesBaa();
+        pigGoesOink();
+        duckGoesQuack();
+        cowGoesMoo();
+        chickGoesCluck();
+    }
 }
