@@ -109,6 +109,7 @@ public class FeedUI : MonoBehaviour
             ResourceManager.money -= chickCost;
             checkButton();
             chickenButton.gameObject.SetActive(false);
+            PlayerAI.HasSellableItems = true;
         }
     }
 
@@ -120,6 +121,7 @@ public class FeedUI : MonoBehaviour
             ResourceManager.money -= cowCost;
             checkButton();
             cowButton.gameObject.SetActive(false);
+            PlayerAI.HasSellableItems = true;
         }
     }
 
@@ -131,6 +133,7 @@ public class FeedUI : MonoBehaviour
             ResourceManager.money -= duckCost;
             checkButton();
             duckButton.gameObject.SetActive(false);
+            PlayerAI.HasSellableItems = true;
         }
     }
 
@@ -141,6 +144,7 @@ public class FeedUI : MonoBehaviour
             ResourceManager.bacon++;
             ResourceManager.money -= pigCost;
             pigButton.gameObject.SetActive(false);
+            PlayerAI.HasSellableItems = true;
         }
     }
 
@@ -152,6 +156,7 @@ public class FeedUI : MonoBehaviour
             ResourceManager.money -= sheepCost;
             checkButton();
             sheepButton.gameObject.SetActive(false);
+            PlayerAI.HasSellableItems = true;
         }
     }
 
@@ -159,10 +164,29 @@ public class FeedUI : MonoBehaviour
     //Made by Ben Hamilton
     public void AIFeed()
     {
-        sheepGoesBaa();
-        pigGoesOink();
-        duckGoesQuack();
-        cowGoesMoo();
-        chickGoesCluck();
+        if (sheep != null && !sheep.getOnCD())
+        {
+            sheepGoesBaa();
+        }
+
+        if (pig != null && !pig.getOnCD())
+        {
+            pigGoesOink();
+        }
+
+        if (duck != null && !duck.getOnCD())
+        {
+            duckGoesQuack();
+        }
+
+        if (cow != null && !cow.getOnCD())
+        {
+            cowGoesMoo();
+        }
+
+        if (chicken != null && !chicken.getOnCD())
+        {
+            chickGoesCluck();
+        }
     }
 }

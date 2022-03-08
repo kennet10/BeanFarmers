@@ -15,21 +15,40 @@ public class PlayerAI : MonoBehaviour
 
     [SerializeField] private float WanderRadius = 5.0f;
     [SerializeField] private float WanderTime = 3.0f;
+    [SerializeField] private float ActionDistance = 2.0f;
+    [SerializeField] private int FeedWhenRicherThan = 100;
+
+    public static bool HasSellableItems = false;
 
     private bool acting = false;
     private const float destinationDis = 1.5f;
 
     private void Start()
     {
-        StartCoroutine(Sell());
+
     }
 
     private void Update()
     {
         if (!acting)
         {
-            //acting = true;
-            //StartCoroutine(Wander());
+            if (HasSellableItems)
+            {
+                acting = true;
+                Sell();
+            }
+
+            else if (ResourceManager.money >= FeedWhenRicherThan)
+            {
+                acting = true;
+                Feed();
+            }
+
+            else
+            {
+                acting = true;
+                StartCoroutine(Wander());
+            }
         }
 
 
@@ -39,11 +58,10 @@ public class PlayerAI : MonoBehaviour
         }
     }
 
-    /* If we want it to wander in its spare time, uncomment this
-     * 
     // Wanders around based on the radius and distance of wanderRadius
     IEnumerator Wander()
     {
+        //Debug.Log("Wandering");
         Vector3 randomDirection = Random.insideUnitSphere * WanderRadius;
 
         randomDirection += transform.position;
@@ -54,33 +72,29 @@ public class PlayerAI : MonoBehaviour
         agent.SetDestination(nextPosition);
 
         yield return new WaitForSeconds(WanderTime);
-
-        //Debug.Log("Wander End");
     }
-    */
 
-    IEnumerator Sell()
+    private void Sell()
     {
+        //Debug.Log("Selling");
         agent.destination = SellPoint;
-        if (Vector3.Distance(agent.transform.position, SellPoint) <= .5)
+        if (Vector3.Distance(SellPoint, agent.transform.position) <= ActionDistance)
         {
-            //RM.GetComponent<ResourceManager>().SellAll();
-            Debug.Log("Arrived at Sell Point");
+            //Debug.Log("Arrived at Sell Point");
+            RM.GetComponent<ResourceManager>().SellAll();
+            HasSellableItems = false;
         }
-
-        yield return new WaitForSeconds(15);
-
     }
 
-    IEnumerator Feed()
+    private void Feed()
     {
+        //Debug.Log("Feeding");
         agent.destination = FeedPoint;
-        if (Vector3.Distance(agent.transform.position, FeedPoint) <= .5)
+        if (Vector3.Distance(FeedPoint, agent.transform.position) <= ActionDistance)
         {
+            //Debug.Log("Arrived at Feed Point");
             FUI.GetComponent<FeedUI>().AIFeed();
-            Debug.Log("Arrived at Feed Point");
+            ResourceManager.money = 99;
         }
-
-        yield return new WaitForSeconds(15);
     }
 }

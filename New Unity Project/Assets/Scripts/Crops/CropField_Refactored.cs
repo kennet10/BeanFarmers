@@ -103,6 +103,7 @@ public class CropField_Refactored : MonoBehaviour
 
     private void increaseCrop()
     {
+        PlayerAI.HasSellableItems = true;
         switch (CM.cropType) {
             case 1:
                 ResourceManager.carrots++;
