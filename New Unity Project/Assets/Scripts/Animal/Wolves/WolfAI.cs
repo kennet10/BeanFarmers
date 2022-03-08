@@ -26,9 +26,6 @@ public class WolfAI : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         players = GameObject.FindGameObjectsWithTag("Player").ToList();
-        
-        // For testing with prexisting animals
-        //animals = GameObject.FindGameObjectsWithTag("Animal").ToList();
 
     }
 

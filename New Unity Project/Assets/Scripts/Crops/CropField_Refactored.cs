@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using System.Linq;
 
-//Made by Ben Hamilton and Haley Vlahos
+//Original by Ben Hamilton and Haley Vlahos, Refactored by Haley Vlahos
 public class CropField_Refactored : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI triggerText;

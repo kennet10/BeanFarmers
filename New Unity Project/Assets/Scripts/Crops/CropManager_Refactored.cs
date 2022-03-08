@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Made by Haley Vlahos
+// Original by Haley Vlahos, Refactored by Haley Vlahos
 public class CropManager_Refactored : MonoBehaviour
 {
     // Buttons
