@@ -19,6 +19,7 @@ public class PlayerAI : MonoBehaviour
     [SerializeField] private int FeedWhenRicherThan = 100;
 
     public static bool HasSellableItems = false;
+    public static bool AnyAnimalsBought = false;
 
     private bool acting = false;
     private const float destinationDis = 1.5f;
@@ -38,7 +39,7 @@ public class PlayerAI : MonoBehaviour
                 Sell();
             }
 
-            else if (ResourceManager.money >= FeedWhenRicherThan)
+            else if ((AnyAnimalsBought) && (ResourceManager.money >= FeedWhenRicherThan))
             {
                 acting = true;
                 Feed();
@@ -61,7 +62,6 @@ public class PlayerAI : MonoBehaviour
     // Wanders around based on the radius and distance of wanderRadius
     IEnumerator Wander()
     {
-        //Debug.Log("Wandering");
         Vector3 randomDirection = Random.insideUnitSphere * WanderRadius;
 
         randomDirection += transform.position;
@@ -76,11 +76,9 @@ public class PlayerAI : MonoBehaviour
 
     private void Sell()
     {
-        //Debug.Log("Selling");
         agent.destination = SellPoint;
         if (Vector3.Distance(SellPoint, agent.transform.position) <= ActionDistance)
         {
-            //Debug.Log("Arrived at Sell Point");
             RM.GetComponent<ResourceManager>().SellAll();
             HasSellableItems = false;
         }
@@ -88,13 +86,10 @@ public class PlayerAI : MonoBehaviour
 
     private void Feed()
     {
-        //Debug.Log("Feeding");
         agent.destination = FeedPoint;
         if (Vector3.Distance(FeedPoint, agent.transform.position) <= ActionDistance)
         {
-            //Debug.Log("Arrived at Feed Point");
             FUI.GetComponent<FeedUI>().AIFeed();
-            //ResourceManager.money = 99;
         }
     }
 }

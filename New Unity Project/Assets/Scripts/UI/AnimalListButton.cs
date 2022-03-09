@@ -37,6 +37,7 @@ public class AnimalListButton : MonoBehaviour
             Destroy(spawnpoint);
             Destroy(this.gameObject);
             ResourceManager.money = money - myAnimalSO.GetBuyCost();
+            PlayerAI.AnyAnimalsBought = true;
         }
     }
 }
