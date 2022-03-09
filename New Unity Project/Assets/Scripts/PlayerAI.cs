@@ -94,7 +94,7 @@ public class PlayerAI : MonoBehaviour
         {
             //Debug.Log("Arrived at Feed Point");
             FUI.GetComponent<FeedUI>().AIFeed();
-            ResourceManager.money = 99;
+            //ResourceManager.money = 99;
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Linq;
+using UnityEngine.AI;
 
 //Original by Ben Hamilton and Haley Vlahos, Refactored by Haley Vlahos
 public class CropField_Refactored : MonoBehaviour
@@ -14,6 +15,7 @@ public class CropField_Refactored : MonoBehaviour
 
     private static int playerNum = 1;
     private bool harvestable = false;
+    private bool isAI;
 
 
     // Updates the triggerText based on the current playerNum
@@ -26,7 +28,7 @@ public class CropField_Refactored : MonoBehaviour
                     triggerText.text = "Press Space to plant!";
                     triggerText.gameObject.SetActive(true);
                 }
-                if (playerNum == 2) {
+                if (playerNum == 2 && !isAI) {
                     triggerText.text = "Press Enter to plant!";
                     triggerText.gameObject.SetActive(true);
                 }
@@ -35,7 +37,7 @@ public class CropField_Refactored : MonoBehaviour
             if (playerNum == 1) {
                 triggerText.text = "Press Space to harvest!";
             }
-            if (playerNum == 2) {
+            if (playerNum == 2 && !isAI) {
                  triggerText.text = "Press Enter to harvest!";
             }
 
@@ -63,6 +65,15 @@ public class CropField_Refactored : MonoBehaviour
             PlayerMovement PM = collision.GetComponent<PlayerMovement>();
             playerNum = PM.playerNum;
             updateText();
+
+            if(collision.gameObject.GetComponent<NavMeshAgent>().enabled == false)
+            {
+                isAI = false;
+            }
+            else
+            {
+                isAI = true;
+            }
 
             if (!ResourceManager.seeds.All(o => o == 0))
                 triggerText.gameObject.SetActive(true);

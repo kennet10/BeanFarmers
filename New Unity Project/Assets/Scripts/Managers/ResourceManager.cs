@@ -56,7 +56,7 @@ public class ResourceManager : MonoBehaviour
     // For game startup, sets all resources to 0 unless it is a seed, in which you are given 1
     public static void SetupResources()
     {
-        money = 0;
+        money = 10000;
         //Seeds
         carrotSeeds = 1;
         cornSeeds = 0;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.AI;
 
 // Made by Haley Vlahos
 public class PastureTrigger : MonoBehaviour
@@ -19,17 +20,15 @@ public class PastureTrigger : MonoBehaviour
         if (collision.gameObject.tag == "Player") {
             PlayerMovement PM = collision.GetComponent<PlayerMovement>();
 
+            playerNum = PM.playerNum;
             if (PM.playerNum == 1) {
                 triggerText.text = "Press Space to feed animals!";
-                playerNum = PM.playerNum;
+                triggerText.gameObject.SetActive(true);
             }
-            if (PM.playerNum == 2) {
+            if (PM.playerNum == 2 && PM.gameObject.GetComponent<NavMeshAgent>().enabled == false) {
                 triggerText.text = "Press Enter to feed animals!";
-                playerNum = PM.playerNum;
+                triggerText.gameObject.SetActive(true);
             }
-
-            triggerText.gameObject.SetActive(true);
-
         }
     }
 

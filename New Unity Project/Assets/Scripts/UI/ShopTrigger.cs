@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.AI;
 
 // Made by Haley Vlahos
 public class ShopTrigger : MonoBehaviour
@@ -20,7 +21,7 @@ public class ShopTrigger : MonoBehaviour
                 triggerText.text = "Press space to open the shop";
                 num = PM.playerNum;
             }
-            if (PM.playerNum == 2) {
+            if (PM.playerNum == 2 && other.gameObject.GetComponent<NavMeshAgent>().enabled == false) {
                 triggerText.text = "Press enter to open the shop";
                 num = PM.playerNum;
             }
