@@ -108,11 +108,6 @@ public class ResourceManager : MonoBehaviour
     // Updates each of the text counters to match the variables, both lists are in alphabetical order, if wool > 0, end the game!
     private void Update()
     {
-        // These were used to debug the resource values
-        //carrots = (int)slide.value;
-        //tomatoes = (int)slide.value;
-        //wool = (int)slide.value;
-
         updateLists();
         displayRsrc = new List<int> {carrots, corn, pumpkins, tomatoes, turnips, eggs, milk, feathers, bacon, wool };
         if (counters.Count == displayRsrc.Count) {

@@ -16,7 +16,7 @@ public class PlayerAI : MonoBehaviour
     [SerializeField] private float WanderRadius = 5.0f;
     [SerializeField] private float WanderTime = 3.0f;
     [SerializeField] private float ActionDistance = 2.0f;
-    [SerializeField] private int FeedWhenRicherThan = 100;
+    [SerializeField] private const int FeedWhenRicherThan = 100;
 
     public static bool HasSellableItems = false;
     public static bool AnyAnimalsBought = false;
@@ -24,10 +24,6 @@ public class PlayerAI : MonoBehaviour
     private bool acting = false;
     private const float destinationDis = 1.5f;
 
-    private void Start()
-    {
-
-    }
 
     private void Update()
     {

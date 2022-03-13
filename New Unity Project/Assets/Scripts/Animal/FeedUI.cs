@@ -100,7 +100,7 @@ public class FeedUI : MonoBehaviour
 
     // These methods all check if the player has enough money to feed them:
     // If they do, the player pays that money, they gain the resource, and the animal goes on cooldown
-    // These were made by Haley Vlahos
+    // These were made by Haley Vlahos, Ben made the HasSellableItems variable
     private void chickGoesCluck()
     {
         if(ResourceManager.money >= chickCost && !chicken.getOnCD()) {
