@@ -12,11 +12,11 @@ public class FeedUI : MonoBehaviour
     [SerializeField] private Button pigButton;
     [SerializeField] private Button sheepButton;
 
-    private Animal chicken = null;
-    private Animal cow = null;
-    private Animal duck = null;
-    private Animal pig = null;
-    private Animal sheep = null;
+    private static Animal chicken = null;
+    private static Animal cow = null;
+    private static Animal duck = null;
+    private static Animal pig = null;
+    private static Animal sheep = null;
 
     private int chickCost = 10;
     private int cowCost = 15;

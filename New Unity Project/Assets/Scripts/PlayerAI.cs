@@ -21,30 +21,32 @@ public class PlayerAI : MonoBehaviour
     public static bool HasSellableItems = false;
     public static bool AnyAnimalsBought = false;
 
-    private bool acting = false;
+    private bool acting;
+    private bool alreadyFed;
     private const float destinationDis = 1.5f;
+    private const int waitTimer = 30;
 
+    private void Start()
+    {
+        acting = false;
+        alreadyFed = false;
+    }
 
+    // The AI wanders around unless it can sell something or feed an animal
     private void Update()
     {
-        if (!acting)
-        {
-            if (HasSellableItems)
-            {
+        if (!acting) {
+
+            StartCoroutine(Wander());
+
+            if (HasSellableItems) {
                 acting = true;
                 Sell();
-            }
-
-            else if ((AnyAnimalsBought) && (ResourceManager.money >= FeedWhenRicherThan))
-            {
+            } else if ((AnyAnimalsBought) && (ResourceManager.money >= FeedWhenRicherThan) && !alreadyFed) {
                 acting = true;
                 Feed();
-            }
-
-            else
-            {
-                acting = true;
-                StartCoroutine(Wander());
+            } else if (alreadyFed) {
+                StartCoroutine(feedingWait());
             }
         }
 
@@ -58,6 +60,7 @@ public class PlayerAI : MonoBehaviour
     // Wanders around based on the radius and distance of wanderRadius
     IEnumerator Wander()
     {
+        acting = true;
         Vector3 randomDirection = Random.insideUnitSphere * WanderRadius;
 
         randomDirection += transform.position;
@@ -70,6 +73,7 @@ public class PlayerAI : MonoBehaviour
         yield return new WaitForSeconds(WanderTime);
     }
 
+    // Sells all current resources
     private void Sell()
     {
         agent.destination = SellPoint;
@@ -80,12 +84,24 @@ public class PlayerAI : MonoBehaviour
         }
     }
 
+    // Attempts to feed all animals that the player has
     private void Feed()
     {
         agent.destination = FeedPoint;
         if (Vector3.Distance(FeedPoint, agent.transform.position) <= ActionDistance)
         {
             FUI.GetComponent<FeedUI>().AIFeed();
+            alreadyFed = true;
         }
+
     }
+
+    // Made by Haley Vlahos
+    // Makes the AI player wait for the waitTimemr before attempting to feed the animals again
+    private IEnumerator feedingWait()
+    {
+        yield return new WaitForSeconds(waitTimer);
+        alreadyFed = false;
+    }
+
 }

@@ -35,6 +35,8 @@ public class GameStateManager : MonoBehaviour
         }
         else
         {
+            AudioSource aud = GetComponent<AudioSource>();
+            Destroy(aud);
             Destroy(this);
         }
         m_Num_Players = NUMPLAYERS.ONE;

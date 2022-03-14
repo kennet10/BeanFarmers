@@ -43,12 +43,13 @@ public class PastureTrigger : MonoBehaviour
     // Pressing your submit key will open the animalMenu
     private void OnTriggerStay(Collider other)
     {
-        string button = "Submit" + playerNum;
-        if (Input.GetButtonDown(button) || Input.GetButton(button)) {
+        if (other.gameObject.tag == "Player") {
+            string button = "Submit" + playerNum;
+            if (Input.GetButtonDown(button) || Input.GetButton(button)) {
                 animalMenu.SetActive(true);
                 triggerText.gameObject.SetActive(false);
                 Feeding.checkButton();
+            }
         }
-        
     }
 }

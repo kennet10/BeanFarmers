@@ -20,13 +20,16 @@ public class CameraManager : MonoBehaviour
         if(numPlayers == 1)
         {
             players[0].gameObject.tag = "Untagged";
+            PlayerMovement pm = players[0].GetComponent<PlayerMovement>();
+            pm.enabled = false;
         }
         else if(numPlayers == 2)
         {
             targetGroup.AddMember(players[0].transform, 1, 1);
             NavMeshAgent nav = players[0].GetComponent<NavMeshAgent>();
-            PlayerAI aiScript = players[0].GetComponent<PlayerAI>();
             nav.enabled = false;
+
+            PlayerAI aiScript = players[0].GetComponent<PlayerAI>();
             aiScript.enabled = false;
         }
     }

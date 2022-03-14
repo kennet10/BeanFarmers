@@ -30,6 +30,7 @@ public class CropManager_Refactored : MonoBehaviour
     private const int tomatoNum = 5;
 
     private CropCoroutine currentCrop;
+    public bool planting = false;
 
     private const int zeroConst = 0;
 
@@ -63,12 +64,14 @@ public class CropManager_Refactored : MonoBehaviour
     // decrements the seed amount, and sets the current crop for the CropManager
     private void CarrotButton()
     {
-        if (ResourceManager.carrotSeeds > zeroConst) {
+        if (ResourceManager.carrotSeeds > zeroConst && !planting) {
             Carrot.SetActive(true);
             Corn.SetActive(false);
             Pumpkin.SetActive(false);
             Turnip.SetActive(false);
             Tomato.SetActive(false);
+
+            planting = true;
 
             ResourceManager.carrotSeeds--;
             cropType = carrotNum;
@@ -79,12 +82,14 @@ public class CropManager_Refactored : MonoBehaviour
 
     private void CornButton()
     {
-        if (ResourceManager.cornSeeds > zeroConst) {
+        if (ResourceManager.cornSeeds > zeroConst && !planting) {
             Carrot.SetActive(false);
             Corn.SetActive(true);
             Pumpkin.SetActive(false);
             Turnip.SetActive(false);
            Tomato.SetActive(false);
+
+            planting = true;
 
             ResourceManager.cornSeeds--;
             cropType = cornNum;
@@ -95,12 +100,14 @@ public class CropManager_Refactored : MonoBehaviour
 
     private void PumpkinButton()
     {
-        if (ResourceManager.pumpkinSeeds > zeroConst) {
+        if (ResourceManager.pumpkinSeeds > zeroConst && !planting) {
             Carrot.SetActive(false);
             Corn.SetActive(false);
             Pumpkin.SetActive(true);
             Turnip.SetActive(false);
             Tomato.SetActive(false);
+
+            planting = true;
 
             ResourceManager.pumpkinSeeds--;
             cropType = pumpkinNum;
@@ -111,12 +118,14 @@ public class CropManager_Refactored : MonoBehaviour
 
     private void TurnipButton()
     {
-        if (ResourceManager.turnipSeeds > zeroConst) {
+        if (ResourceManager.turnipSeeds > zeroConst && !planting) {
             Carrot.SetActive(false);
             Corn.SetActive(false);
             Pumpkin.SetActive(false);
             Turnip.SetActive(true);
             Tomato.SetActive(false);
+
+            planting = true;
 
             ResourceManager.turnipSeeds--;
             cropType = turnipNum;
@@ -127,12 +136,14 @@ public class CropManager_Refactored : MonoBehaviour
 
     private void TomatoButton()
     {
-        if (ResourceManager.tomatoSeeds > zeroConst) {
+        if (ResourceManager.tomatoSeeds > zeroConst && !planting) {
             Carrot.SetActive(false);
             Corn.SetActive(false);
             Pumpkin.SetActive(false);
             Turnip.SetActive(false);
             Tomato.SetActive(true);
+
+            planting = true;
 
             ResourceManager.tomatoSeeds--;
             cropType = tomatoNum;

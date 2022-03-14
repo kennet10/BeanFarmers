@@ -41,9 +41,11 @@ public class ShopTrigger : MonoBehaviour
     // Depending on which player was the last to enter the trigger, pressing their submit button will open the shop menu
     private void OnTriggerStay(Collider other)
     {
-        string button = "Submit" + num;
-        if (Input.GetButtonDown(button) || Input.GetButton(button)) {
-            shopMenu.SetActive(true);
+        if (other.gameObject.tag == "Player") {
+            string button = "Submit" + num;
+            if (Input.GetButtonDown(button) || Input.GetButton(button)) {
+                shopMenu.SetActive(true);
+            }
         }
     }
 }

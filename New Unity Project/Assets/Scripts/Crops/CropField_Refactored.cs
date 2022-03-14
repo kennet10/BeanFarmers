@@ -15,7 +15,6 @@ public class CropField_Refactored : MonoBehaviour
 
     private static int playerNum = 1;
     private bool harvestable = false;
-    private bool isAI;
 
 
     // Updates the triggerText based on the current playerNum
@@ -88,6 +87,7 @@ public class CropField_Refactored : MonoBehaviour
             increaseCrop();
             CM.disableField();
             currentCrop = null;
+            CM.planting = false;
             harvestable = false;
 
             if (!ResourceManager.seeds.All(o => o == 0))
