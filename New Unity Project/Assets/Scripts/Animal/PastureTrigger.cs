@@ -23,12 +23,12 @@ public class PastureTrigger : MonoBehaviour
             playerNum = PM.playerNum;
             if (PM.playerNum == 1) {
                 triggerText.text = "Press Space to feed animals!";
-                triggerText.gameObject.SetActive(true);
             }
-            if (PM.playerNum == 2 && PM.gameObject.GetComponent<NavMeshAgent>().enabled == false) {
+            if (PM.playerNum == 2) {
                 triggerText.text = "Press Enter to feed animals!";
-                triggerText.gameObject.SetActive(true);
             }
+
+            triggerText.gameObject.SetActive(true);
         }
     }
 

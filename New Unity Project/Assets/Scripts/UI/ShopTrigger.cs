@@ -20,13 +20,13 @@ public class ShopTrigger : MonoBehaviour
             if(PM.playerNum == 1) {
                 triggerText.text = "Press space to open the shop";
                 num = PM.playerNum;
+                triggerText.gameObject.SetActive(true);
             }
-            if (PM.playerNum == 2 && other.gameObject.GetComponent<NavMeshAgent>().enabled == false) {
+            if (PM.playerNum == 2) {
                 triggerText.text = "Press enter to open the shop";
                 num = PM.playerNum;
+                triggerText.gameObject.SetActive(true);
             }
-
-            triggerText.gameObject.SetActive(true);
         }
     }
 

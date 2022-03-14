@@ -11,13 +11,17 @@ public class CameraManager : MonoBehaviour
     private GameObject[] players;
     [SerializeField] private CinemachineTargetGroup targetGroup;
 
-    // Sets the proper players active and assigns them to the targetGrouop of the camera
+    // Sets the proper players active and assigns them to the targetGroup of the camera
     public void Start()
     {
         numPlayers = GameStateManager.GetNumPlayers();
         players = GameObject.FindGameObjectsWithTag("Player");
 
-        if(numPlayers == 2)
+        if(numPlayers == 1)
+        {
+            players[0].gameObject.tag = "Untagged";
+        }
+        else if(numPlayers == 2)
         {
             targetGroup.AddMember(players[0].transform, 1, 1);
             NavMeshAgent nav = players[0].GetComponent<NavMeshAgent>();

@@ -26,18 +26,18 @@ public class CropField_Refactored : MonoBehaviour
             if (!ResourceManager.seeds.All(o => o == 0)) {
                 if (playerNum == 1) {
                     triggerText.text = "Press Space to plant!";
-                    triggerText.gameObject.SetActive(true);
                 }
-                if (playerNum == 2 && !isAI) {
+                if (playerNum == 2) {
                     triggerText.text = "Press Enter to plant!";
-                    triggerText.gameObject.SetActive(true);
                 }
+
+                triggerText.gameObject.SetActive(true);
             }
         } else {
             if (playerNum == 1) {
                 triggerText.text = "Press Space to harvest!";
             }
-            if (playerNum == 2 && !isAI) {
+            if (playerNum == 2) {
                  triggerText.text = "Press Enter to harvest!";
             }
 
@@ -48,8 +48,7 @@ public class CropField_Refactored : MonoBehaviour
         if (currentCrop != null)
             triggerText.gameObject.SetActive(false);
         if (harvestable)
-            triggerText.gameObject.SetActive(true);
-
+                triggerText.gameObject.SetActive(true);
     }
 
     public void setCurrentCrop(CropCoroutine cc)
@@ -66,15 +65,6 @@ public class CropField_Refactored : MonoBehaviour
             playerNum = PM.playerNum;
             updateText();
 
-            if(collision.gameObject.GetComponent<NavMeshAgent>().enabled == false)
-            {
-                isAI = false;
-            }
-            else
-            {
-                isAI = true;
-            }
-
             if (!ResourceManager.seeds.All(o => o == 0))
                 triggerText.gameObject.SetActive(true);
         }
@@ -89,7 +79,8 @@ public class CropField_Refactored : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        updateText();
+        if(other.gameObject.tag == "Player")
+            updateText();
 
         string button = "Submit" + playerNum;
 
