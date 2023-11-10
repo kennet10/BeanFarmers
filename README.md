@@ -1,4 +1,4 @@
-# GDIM32GroupProject
+# Bean Farmers
 
 An 8 week project for GDIM 32 at UCI; required utilization of co-op play, AI enemies, AI teammates, SOLID Principles, and design patterns.
 
